@@ -158,7 +158,7 @@ func split(concurrency_limit: int) -> Array[SubProblem]:
 	
 	var split_x_overhead: int = influence_range.x * rect.size.y
 	var split_y_overhead: int = influence_range.y * rect.size.x
-
+	print_debug("INFLUENCE R", influence_range, ", OVERX=", split_x_overhead, ", OVERY=", split_y_overhead)
 	if may_split_x and ((not may_split_y) or (split_x_overhead <= split_y_overhead)):
 		extra_overlap.x = influence_range.x * 2
 

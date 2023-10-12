@@ -88,6 +88,7 @@ func _exit_tree():
 		_runner = null
 
 func start():
+	print_debug("rec area", rect.get_area())
 	assert(_runner == null)
 	assert(target != null)
 	assert(rect.has_area())
