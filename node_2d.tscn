@@ -1,3 +1,19 @@
-[gd_scene format=3 uid="uid://bc2x61unsfne2"]
+[gd_scene load_steps=3 format=3 uid="uid://bc2x61unsfne2"]
+
+[ext_resource type="Script" path="res://addons/wfc/nodes/generator_2d.gd" id="1_008l6"]
+
+[sub_resource type="GDScript" id="GDScript_sq3cg"]
+script/source = "extends Node2D
+
+func _ready():
+	$generator.start()
+	$sample.hide()
+	$negative_sample.hide()
+	$target.show()
+"
 
 [node name="Node2D" type="Node2D"]
+script = SubResource("GDScript_sq3cg")
+
+[node name="generator" type="Node" parent="."]
+script = ExtResource("1_008l6")
