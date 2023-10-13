@@ -21,7 +21,7 @@ for intended difficulty
 This project runs on the GODOT game engine (specifically version 4.0.4).
 To download and run the code first install GODOT:
 	- GODOT Website: https://godotengine.org/
-	- GODOT version archive (for downloading the 4.0.4 version specifically): https://godotengine.org/download/archive/
+	- GODOT version archive (for downloading the 4.0.4 version specifically): https://godotengine.org/download/archive/	
 
 ### Resources
 
