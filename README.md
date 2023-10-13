@@ -1,6 +1,6 @@
 # Carmop-WFC_AnxietyCurves_SuperMarioBros
 
-#Description
+### Description
 
 An attempt to implement anxiety curves into wave function collapse level generation in order to 
 end up with an algorithm that can create pseudo-random levels based on desired difficulty.
@@ -16,11 +16,11 @@ end up with an algorithm that can create pseudo-random levels based on desired d
 The idea behind combining both concepts is to create a easy to use level generator that acounts 
 for intended difficulty
 
-#Set up
+### Set up
 
 This project runs on the GODOT game engine (specifically version 4.0.4).
 To download and run the code first install GODOT:
 
-#Resources
+### Resources
 
-#Acknowledgements
+### Acknowledgements
