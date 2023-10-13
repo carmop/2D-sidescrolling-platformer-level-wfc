@@ -13,7 +13,7 @@ end up with an algorithm that can create pseudo-random levels based on desired d
 	The qualitative curve that describes a player's challenge in traversing a video game 
 	level (in this case a 2D platforming level)
 
-The idea behind combining both concepts is to create a easy to use level generator that acounts 
+The idea behind combining both concepts is to create a easy to use level generator that accounts 
 for intended difficulty
 
 ### Set up
