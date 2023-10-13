@@ -18,6 +18,9 @@ for intended difficulty
 
 #Set up
 
+This project runs on the GODOT game engine (specifically version 4.0.4).
+To download and run the code first install GODOT:
+
 #Resources
 
 #Acknowledgements
