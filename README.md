@@ -16,3 +16,8 @@ end up with an algorithm that can create pseudo-random levels based on desired d
 The idea behind combining both concepts is to create a easy to use level generator that acounts 
 for intended difficulty
 
+#Set up
+
+#Resources
+
+#Acknowledgements
