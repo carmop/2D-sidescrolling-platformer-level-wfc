@@ -37,7 +37,7 @@ The project also uses the "WFC (Wave Function Collapse) and generic constraint-s
 ### Running
 
 - In order to run right click the `node_2d.tscn` on the `FileSystem` tab and click the first option: `Open Scene`
-![](/images/search.PNG)
+![](/images/node2d.PNG)
 - Now press the play :arrow_forward: button on the top-right corner of the program window 
 ![](/images/playbutton.PNG)
 
