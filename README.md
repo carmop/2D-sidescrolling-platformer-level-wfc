@@ -26,20 +26,20 @@ To download and run the code first install GODOT:
 
 The project also uses the "WFC (Wave Function Collapse) and generic constraint-solving implementation for Godot 4" addon which is, as the name suggests, a version of the WFC algorithm for GODOT game engine. It can be installed onto GODOT through the following steps: 
 - Open GODOT and click `AssetLib` tab on the top-center of the window:
-![(Might take a bit  of time to load)](/images/assetlib.png)
+![](/images/assetlib.png)
 - Search "wave function collapse" on the search bar:
-![It should be the only addon that shows up](images/search.png)
+![](/images/search.png)
 - Click the addon name:
-![-](images/addonname.PNG)
+![](/images/addonname.PNG)
 - Click `Download` and follow the prompts:
-![-](images/download.png)
+![](/images/download.png)
 
 ### Running
 
 - In order to run right click the `node_2d.tscn` on the `FileSystem` tab and click the first option: `Open Scene`
-![](images/search.png)
+![](/images/search.png)
 - Now press the play :arrow_forward: button on the top-right corner of the program window 
-![](images/playbutton.png)
+![](/images/playbutton.png)
 
 **if the program does not immediately run refer bellow:**
 	- In another scene opens, right click the `node_2d` tab on the top left of the program window and select the `Play This Scene` option
