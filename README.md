@@ -42,8 +42,9 @@ The project also uses the "WFC (Wave Function Collapse) and generic constraint-s
 ![](/images/playbutton.PNG)
 
 **if the program does not immediately run refer bellow:**
-	- In another scene opens, right click the `node_2d` tab on the top left of the program window and select the `Play This Scene` option
-	- In case the "Please Confirm..." prompt window appears click `Select Current`
+
+- In another scene opens, right click the `node_2d` tab on the top left of the program window and select the `Play This Scene` option
+- In case the "Please Confirm..." prompt window appears click `Select Current`
 
 
 ### Resources
