@@ -30,7 +30,7 @@ The project also uses the "WFC (Wave Function Collapse) and generic constraint-s
 - Search "wave function collapse" on the search bar:
 ![It should be the only addon that shows up](images/search.png)
 - Click the addon name:
-![-](images/addonname.png)
+![-](images/addonname.PNG)
 - Click `Download` and follow the prompts:
 ![-](images/download.png)
 
