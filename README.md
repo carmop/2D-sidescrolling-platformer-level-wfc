@@ -26,7 +26,7 @@ To download and run the code first install GODOT:
 
 The project also uses the "WFC (Wave Function Collapse) and generic constraint-solving implementation for Godot 4" addon which is, as the name suggests, a version of the WFC algorithm for GODOT game engine. It can be installed onto GODOT through the following steps: 
 - Open GODOT and click `AssetLib` tab on the top-center of the window:
-![(Might take a bit  of time to load)](images/assetlib.png)
+![(Might take a bit  of time to load)](/images/assetlib.png)
 - Search "wave function collapse" on the search bar:
 ![It should be the only addon that shows up](images/search.png)
 - Click the addon name:
