@@ -26,3 +26,41 @@ drawLevel = DrawLevel(level)
 
 #Checks is level has benn completely finished
 done = False
+
+#Instantly draws level
+if interact is False:
+    while done is False:
+        result = level.waveFunctionCollapse()
+        if result == 0:
+            done = True
+
+drawLevel.update()
+isRunning = True
+
+#Draws level in real time
+while isRunning:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            isRunning is False
+
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE:
+                isRunning = False
+            if event.key == pygame.K_SPACE:
+                if interact is True and key_press is True:
+                    level.waveFunctionCollapse()
+                    drawLevel.update()
+
+    if interact is True and key_press is False:
+        if not done:
+            result = level.waveFunctionCollapse()
+            if result == 0:
+                done = True
+        drawLevel.update()
+
+    drawLevel.draw(displaySurface)
+
+    pygame.display.flip()
+    clock.tick(10)
+
+pygame.quit()
