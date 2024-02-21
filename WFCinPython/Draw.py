@@ -1,2 +1,2 @@
 import pygame
-from aSettings import *
+from Settings import *
