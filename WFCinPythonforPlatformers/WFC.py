@@ -23,7 +23,7 @@ level = Level(LEVEL_LENGTH, LEVEL_H)
 # Create level based on size of 'level' variable.
 drawLevel = DrawLevel(level)
 
-# Checks is level has benn completely finished.
+# Checks is level generation has benn completely finished.
 done = False
 
 # Instantly draws level if `interact` is set to False.
