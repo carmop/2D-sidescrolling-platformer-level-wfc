@@ -2,7 +2,9 @@
 
 INTERACTIVE = True
 INTERACTIVE_KEYPRESS = True
-WEIGHTED = False
+WEIGHTED = True
+
+ANXIETY_CURVE = True
 
 #Path to spritesheet
 SPRITESHEET_PATH = "images/debug_sprites.png"
@@ -24,8 +26,12 @@ Y_SCALE = 10
 LEFT = 0
 RIGHT = 1
 
-#Tile Types:
+# Difficulty Types:
+EASY = 0
+MEDIUM = 1
+HARD = 2
 
+#Tile Types:
 EASY_STRAIGHT_LOW = 0
 EASY_STRAIGHT_MID = 1
 EASY_STRAIGHT_TOP = 2
@@ -82,7 +88,7 @@ to be put together, a.k.a which tile is allowed to be next to which tile.
 """
 tileRules = {
     EASY_STRAIGHT_LOW : [LOW, LOW],
-    EASY_STRAIGHT_MID : [MID, MID],
+    EASY_STRAIGHT_MID : [MID,MID],
     EASY_STRAIGHT_TOP : [TOP, TOP],
     EASY_LOW_TO_MID : [LOW, MID],
     EASY_LOW_TO_TOP : [LOW, TOP],
@@ -96,7 +102,7 @@ tileRules = {
     EASY_TOP_A : [TOP, TOP],
 
     MED_STRAIGHT_LOW : [LOW, LOW],
-    MED_STRAIGHT_MID : [MID, MID],
+    MED_STRAIGHT_MID : [MID,MID],
     MED_STRAIGHT_TOP : [TOP, TOP],
     MED_LOW_TO_MID : [LOW, MID],
     MED_LOW_TO_TOP : [LOW, TOP],
@@ -110,7 +116,7 @@ tileRules = {
     MED_TOP_A : [TOP, TOP],
 
     HARD_STRAIGHT_LOW : [LOW,LOW],
-    HARD_STRAIGHT_MID : [MID, MID],
+    HARD_STRAIGHT_MID : [MID,MID],
     HARD_STRAIGHT_TOP : [TOP, TOP],
     HARD_LOW_TO_MID : [LOW, MID],
     HARD_LOW_TO_TOP : [LOW, TOP],
@@ -133,7 +139,7 @@ the tile choice to be skewed towards tiles with a higher value whenever possible
 """
 tileWeights = {
     EASY_STRAIGHT_LOW : 1,
-    EASY_STRAIGHT_MID : 1,
+    EASY_STRAIGHT_MID : 25,
     EASY_STRAIGHT_TOP : 1,
     EASY_LOW_TO_MID : 2,
     EASY_LOW_TO_TOP : 5,
