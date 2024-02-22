@@ -2,7 +2,7 @@
 
 INTERACTIVE = True
 INTERACTIVE_KEYPRESS = True
-WEIGHTED = True
+WEIGHTED = False
 
 #Path to spritesheet
 SPRITESHEET_PATH = "images/debug_sprites.png"
@@ -126,7 +126,11 @@ tileRules = {
 
 }
 
-#Tile Weights
+"""Tile Weights
+
+These can be used if `WEIGHTED` variable is set to true and will cause 
+the tile choice to be skewed towards tiles with a higher value whenever possible.
+"""
 tileWeights = {
     EASY_STRAIGHT_LOW : 1,
     EASY_STRAIGHT_MID : 1,
