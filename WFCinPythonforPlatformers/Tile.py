@@ -72,31 +72,31 @@ class Tile:
             self.entropy = 0
 
 
-def constrain(self, neighbourPossibilities, direction):
-        """Returns true if possibilities have been completely reduced."""
+    def constrain(self, neighbourPossibilities, direction):
+            """Returns true if possibilities have been completely reduced."""
 
-        reduced = False
+            reduced = False
 
-        if self.entropy > 0:
-            connectors = []
+            if self.entropy > 0:
+                connectors = []
 
-            # Add neighbouring tiles to `connectors` list.
-            for neighbourPossibility in neighbourPossibilities:
-                connectors.append(tileRules[neighbourPossibility][direction])
+                # Add neighbouring tiles to `connectors` list.
+                for neighbourPossibility in neighbourPossibilities:
+                    connectors.append(tileRules[neighbourPossibility][direction])
 
-            if direction == RIGHT:
-                opposite = LEFT
+                if direction == RIGHT:
+                    opposite = LEFT
 
-            if direction == LEFT:
-                opposite = RIGHT
-            
-            # If a possibility does not fit nex to current tile remove it.
-            for possibility in self.possibilities.copy():
-                if tileRules[possibility][opposite] not in connectors:
-                    self.possibilities.remove(possibility)
-                    reduced = True
+                if direction == LEFT:
+                    opposite = RIGHT
+                
+                # If a possibility does not fit nex to current tile remove it.
+                for possibility in self.possibilities.copy():
+                    if tileRules[possibility][opposite] not in connectors:
+                        self.possibilities.remove(possibility)
+                        reduced = True
 
-            self.entropy = len(self.possibilities)
+                self.entropy = len(self.possibilities)
 
-        return reduced
-    
+            return reduced
+        
