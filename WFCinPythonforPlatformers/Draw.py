@@ -9,6 +9,8 @@ class DrawLevel:
     draw level grid, write entropy values on each grid cell,
     and finally draw the collapsed tiles.  
     """
+
+    
     def __init__(self, level) -> None:
         """Chose fonts and load image path."""
 
