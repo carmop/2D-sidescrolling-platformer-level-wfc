@@ -56,3 +56,34 @@ class Level:
                     lowest = tileEntropy
 
         return lowest
+    
+
+    def waveFunctionCollapse(self):
+        """"""
+
+        tilesLowestEntropy = self.getTilesLowestEntropy()
+
+        if tilesLowestEntropy == []:
+            return 0
+
+        tileToCollapse = random.choice(tilesLowestEntropy)
+        tileToCollapse.collapse()
+
+        stack = Stack()
+        stack.push(tileToCollapse)
+
+        while(not stack.is_empty()):
+            tile = stack.pop()
+            tilePossibilities = tile.getPossibilities()
+            directions = tile.getDirections()
+
+            for direction in directions:
+                neighbour = tile.getNeighbour(direction)
+
+                if neighbour.entropy != 0:
+                    reduced = neighbour.constrain(tilePossibilities, direction)
+
+                    if reduced == True:
+                        stack.push(neighbour)    # When possibilities were reduced need to propagate further
+
+        return 1
