@@ -29,7 +29,7 @@ RIGHT = 1
 # Difficulty Types:
 EASY = 0
 MEDIUM = 1
-HARD = 2
+HARD = 2 #Gotta add difficulty to each tile
 
 #Tile Types:
 EASY_STRAIGHT_LOW = 0
@@ -139,7 +139,7 @@ the tile choice to be skewed towards tiles with a higher value whenever possible
 """
 tileWeights = {
     EASY_STRAIGHT_LOW : 1,
-    EASY_STRAIGHT_MID : 25,
+    EASY_STRAIGHT_MID : 5,
     EASY_STRAIGHT_TOP : 1,
     EASY_LOW_TO_MID : 2,
     EASY_LOW_TO_TOP : 5,
