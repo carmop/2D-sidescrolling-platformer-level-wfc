@@ -50,3 +50,30 @@ class Tile:
             self.possibilities = random.choices(self.possibilities, weights=None, k=1)
             self.entropy = 0
 
+
+def constrain(self, neighbourPossibilities, direction):
+        """"""
+        
+        reduced = False
+
+        if self.entropy > 0:
+            connectors = []
+
+            for neighbourPossibility in neighbourPossibilities:
+                connectors.append(tileRules[neighbourPossibility][direction])
+
+            if direction == RIGHT:
+                opposite = LEFT
+
+            if direction == LEFT:
+                opposite = RIGHT
+            
+            for possibility in self.possibilities.copy():
+                if tileRules[possibility][opposite] not in connectors:
+                    self.possibilities.remove(possibility)
+                    reduced = True
+
+            self.entropy = len(self.possibilities)
+
+        return reduced
+    
