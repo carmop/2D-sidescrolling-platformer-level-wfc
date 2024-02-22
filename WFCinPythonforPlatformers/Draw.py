@@ -5,7 +5,7 @@ from Settings import *
 class DrawLevel:
     """Pygame code for drawing the WFC generated level.
 
-    Uses pygame builty in functionality to create game window,
+    Uses pygame built in functionality to create game window,
     draw level grid, write entropy values on each grid cell,
     and finally draw the collapsed tiles.  
     """
