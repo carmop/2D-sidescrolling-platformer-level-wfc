@@ -60,6 +60,6 @@ while isRunning:
     drawLevel.draw(displaySurface)
 
     pygame.display.flip()
-    clock.tick(10)
+    clock.tick(10) # Speed of tile collapsing animation when `key_press` is False and `interact` is True.
 
 pygame.quit()
