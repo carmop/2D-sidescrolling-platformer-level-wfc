@@ -75,7 +75,11 @@ LOW = 1
 MID = 2
 TOP = 3
 
-#Tile Rules
+"""Tile Rules (also called "adjecency" rules)
+
+There sets of rules represent the way in which the tiles are allowed
+to be put together, a.k.a which tile is allowed to be next to which tile.
+"""
 tileRules = {
     EASY_STRAIGHT_LOW : [LOW, LOW],
     EASY_STRAIGHT_MID : [MID, MID],
