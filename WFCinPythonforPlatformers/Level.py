@@ -54,18 +54,37 @@ class Level:
     
 
     def getLowestEntropy(self):
-        """Returns list in which entropy value is the lowest in current WFC step."""
-        lowestentropy = len(list(tileRules.keys()))
+        """Returns  which entropy value is the lowest in current WFC step."""
+        lowest = len(list(tileRules.keys()))
 
         for y in range(self.rows):
             for x in range(self.cols):
                 tileEntropy = self.tileRows[y][x].entropy
 
-                if tileEntropy < lowestentropy:
+                if tileEntropy < lowest:
                     lowest = tileEntropy
 
         return lowest
     
+
+    def getTilesLowestEntropy(self):
+        """Returns list of lowest entropy tiles."""
+        lowest = len(list(tileRules.keys()))
+        tileList = []
+
+        for y in range(self.rows):
+            for x in range(self.cols):
+                tileEntropy = self.tileRows[y][x].entropy
+              
+                if tileEntropy > 0:
+                    if tileEntropy < lowest:
+                        tileList.clear()
+                        lowest = tileEntropy
+                    if tileEntropy == lowest:
+                        tileList.append(self.tileRows[y][x])
+       
+        return tileList
+
 
     def waveFunctionCollapse(self):
         """Main WFC function. Handles tile collapsing and propagation.
