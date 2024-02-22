@@ -14,7 +14,7 @@ clock = pygame.time.Clock()
 # Create surface object, base on size of level and based on level length and y size of 1 tile.
 displaySurface = pygame.display.set_mode(size=((LEVEL_LENGTH * X_TILE * SCALING) + 5, (LEVEL_H * Y_TILE * SCALING)))
 
-pygame.display.set_caption("WFC Algo")
+pygame.display.set_caption("Wave Function Collapse in Platformer Level Generation")
 
 # Create level variable to determine level size from settings file.
 level = Level(LEVEL_LENGTH, LEVEL_H)
