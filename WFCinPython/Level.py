@@ -26,7 +26,8 @@ class Level:
                 tile = self.tileRows[y][x]
 
                 # Add neighbouring tiles to a list, 
-                # for checking left and right sides of current tile for propagating probability
+                # for checking left and right sides of current tile
+                # for propagating probability
                 if x < sizeX - 1:
                     tile.addNeighbour(RIGHT, self.tileRows[y][x+1])
                 if x > 0: 
