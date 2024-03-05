@@ -34,6 +34,7 @@ class Tile:
         self.possibilities = list(tileRules.keys()) # `tileRules` is a dict in Settings.py.
         self.entropy = len(self.possibilities) # Just how many possibilities a tile can have.
         self.neighbours = dict()
+        self.difficulties = list(tileDifficulty.keys()) #!!!!!!!!!!!!!!
 
 
     def addNeighbour(self, direction, tile):
@@ -68,6 +69,7 @@ class Tile:
             self.possibilities = random.choices(self.possibilities, weights=weight, k=1)
             self.entropy = 0
         else:
+            # ADD A CHECK FOR ADDING 1st TILE WITH CORRECT DIFF
             self.possibilities = random.choices(self.possibilities, weights=None, k=1)
             self.entropy = 0
 
@@ -90,8 +92,10 @@ class Tile:
                 if direction == LEFT:
                     opposite = RIGHT
                 
-                # If a possibility does not fit nex to current tile remove it.
+                # If a possibility does not fit next to current tile remove it.
                 for possibility in self.possibilities.copy():
+
+                    # Checks current tile edge with opposite edge from neighbour.
                     if tileRules[possibility][opposite] not in connectors:
                         self.possibilities.remove(possibility)
                         reduced = True
@@ -100,3 +104,35 @@ class Tile:
 
             return reduced
         
+        
+    def constrainWithAnxiety(self, neighbourPossibilities, direction): #!!!!!!!!!!!!!!!
+            """Returns true if possibilities have been completely reduced."""
+
+            reduced = False
+
+            if self.entropy > 0:
+                connectors = []
+                diff = [1] #!!!!!!!!!!!
+
+                # Add neighbouring tiles to `connectors` list.
+                for neighbourPossibility in neighbourPossibilities:
+                    connectors.append(tileRules[neighbourPossibility][direction])
+
+                if direction == RIGHT:
+                    opposite = LEFT
+
+                if direction == LEFT:
+                    opposite = RIGHT
+                
+                for possibility in self.possibilities.copy():
+
+                    # Checks current tile edge with opposite edge from neighbour.
+                    # If a possibility does not fit next to current tile remove it.
+                    if (tileRules[possibility][opposite] not in connectors or 
+                        tileDifficulty[possibility][0] not in diff): #!!!!!!!!!!!!
+                        self.possibilities.remove(possibility)
+                        reduced = True
+
+                self.entropy = len(self.possibilities)
+
+            return reduced
