@@ -37,6 +37,15 @@ class Level:
                     tile.addNeighbour(RIGHT, self.tileRows[y][x+1])
                 if x > 0: 
                     tile.addNeighbour(LEFT, self.tileRows[y][x-1])
+        
+        #!!!!!!!!!!!!!!!!!!!!!!!!
+                    #COULD USE '.index(elem)' TO CHECK TILE INDEX, WHERE ELEMENT IS TILE OBJ
+        # for i in range(len(self.tileRows[0])):
+            # print (i) #0 to 14 (a.k.a the index of the tiles!)
+        
+        # print(self.tileRows)
+        # print(len(self.tileRows[0]))
+        #!!!!!!!!!!!!!!!!!!!!!!!!
 
 
     def getEntropy(self, x, y):
@@ -86,6 +95,12 @@ class Level:
         return tileList
 
 
+    def getCell(self, tile):
+        """Returns index of the cell a given tile object is in."""
+
+        return self.tileRows[0].index(tile)
+
+
     def waveFunctionCollapse(self):
         """Main WFC function. Handles tile collapsing and propagation.
         
@@ -112,7 +127,7 @@ class Level:
             tile = stack.pop()
             tilePossibilities = tile.getPossibilities() # Which tiles are allowed next to current tile.
             
-            # Where to propagate the possibilities, 
+            # Direction to propagate the possibilities, 
             # since this is implementation is simplified as a 1D problem 
             # it can only have up to 2 directions (left and right).
             directions = tile.getDirections() 
@@ -122,7 +137,8 @@ class Level:
 
                 # Constrain possibilities of neighbouring tiles.
                 if neighbour.entropy != 0:
-                    reduced = neighbour.constrain(tilePossibilities, direction)
+                    # reduced = neighbour.constrain(tilePossibilities, direction)
+                    reduced = neighbour.constrainWithAnxiety(tilePossibilities, direction)
 
                     if reduced == True:
                         stack.push(neighbour)    # When possibilities were reduced need to propagate further
