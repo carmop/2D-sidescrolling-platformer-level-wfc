@@ -15,6 +15,8 @@ class Level:
 
     def __init__(self, sizeX, sizeY) -> None:
         
+        self.AC = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+
         self.cols = sizeX
         self.rows = sizeY
 
@@ -23,6 +25,7 @@ class Level:
             tiles = []
             for x in range(sizeX):
                 tile = Tile(x,y)
+                # !!!!!!!!!!!!!! for AC: can cull the population on tile creation
                 tiles.append(tile)
             self.tileRows.append(tiles)
 
@@ -112,13 +115,14 @@ class Level:
         affects which tile is possible to be collapsed next.
         """
 
-        tilesLowestEntropy = self.getTilesLowestEntropy()
+        tilesLowestEntropy = self.getTilesLowestEntropy() # list of lowest entropy tile objects.
 
         if tilesLowestEntropy == []: # If there is no lowest entropy WFC is finished.
             return 0
 
-        tileToCollapse = random.choice(tilesLowestEntropy) # Chose random tile from lowest entropy tiles.
-        tileToCollapse.collapse() # Collapse chosen tile.
+        tileToCollapse = random.choice(tilesLowestEntropy) # Choose random tile from lowest entropy tiles.
+        index = self.getCell(tileToCollapse)
+        tileToCollapse.collapseAC(diff=self.AC[index]) # Collapse chosen tile.
 
         stack = Stack()
         stack.push(tileToCollapse)

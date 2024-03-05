@@ -31,10 +31,20 @@ class Tile:
     def __init__(self, x, y):
         """Defines class' atributes."""
 
+        # total_possibilities = tileRules.keys()
+        # print(total_possibilities)
+        # self.possibilities =[]
+
+        # for possible_tile in total_possibilities:
+        #     if possible_tile
+        #         self.possibilities.append(possible_tile)
+
         self.possibilities = list(tileRules.keys()) # `tileRules` is a dict in Settings.py.
         self.entropy = len(self.possibilities) # Just how many possibilities a tile can have.
         self.neighbours = dict()
+        
         self.difficulties = list(tileDifficulty.keys()) #!!!!!!!!!!!!!!
+        # print("POSSIBILITIES", self.possibilities)
 
 
     def addNeighbour(self, direction, tile):
@@ -70,8 +80,32 @@ class Tile:
             self.entropy = 0
         else:
             # ADD A CHECK FOR ADDING 1st TILE WITH CORRECT DIFF
+            # if  not in Level.AC[Level.getCell(t)]!!!!!!!!!!!
             self.possibilities = random.choices(self.possibilities, weights=None, k=1)
             self.entropy = 0
+
+
+    def collapseAC(self, diff): # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        """"""
+
+        if WEIGHTED: # WEIGHTED can be set to True of False in Settings.py.
+            weight = [tileWeights[possibility] for possibility in self.possibilities]
+            self.possibilities = random.choices(self.possibilities, weights=weight, k=1)
+            self.entropy = 0
+        else:
+            # ADD A CHECK FOR ADDING 1st TILE WITH CORRECT DIFF
+            # if  not in Level.AC[Level.getCell(t)]!!!!!!!!!!!
+            while True:
+                self.possibilities = random.choices(self.possibilities, weights=None, k=1)
+                # print("@@@@@@@@",type(self.possibilities))
+                print("DIFF",diff,"POS",tileDifficulty[self.possibilities[0]][0])
+                if tileDifficulty[self.possibilities[0]][0] == diff:
+                    self.entropy = 0
+                    print("B")
+                    break
+                else:
+                    self.possibilities = list(tileRules.keys())
+                    print("C")
 
 
     def constrain(self, neighbourPossibilities, direction):
