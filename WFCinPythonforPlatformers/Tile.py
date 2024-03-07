@@ -1,6 +1,6 @@
 import random
-# from AC import AnxietyCurve
 from Settings import *
+
 
 class Tile:
     """Attributes and functionality of tiles objects as well as the method used for collapse.

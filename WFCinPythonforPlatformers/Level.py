@@ -3,7 +3,6 @@ from Tile import Tile
 from Stack import Stack
 from Settings import *
 
-# from AC import AnxietyCurve
 
 class Level:
     """Performs WFC and propagates probabilities by using the tiles' entropy values. 
