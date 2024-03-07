@@ -30,17 +30,17 @@ class Level:
                 tile = Tile(x,y)
                 possibilities = tile.possibilities.copy()
                 
-                # print(len(tile.possibilities), len(tileDifficulty))
-                for i in range(len(possibilities)):
-                    # print("check", tile.possibilities[i])
-                    # print("i",i)
-                    # print("possibility:", tile.possibilities[i], "possibilities:", len(tile.possibilities), "diff", tileDifficulty[tile.possibilities[i]][0], "supposed:", self.AC[x])
-                    if tileDifficulty[tile.possibilities[i]][0] is not self.AC[x]:
-                # !!!!!!!!!!!!!! for AC: can cull the population on tile creation
-                        # print("REMOVED")
-                        possibilities.remove(tile.possibilities[i])
-                # print("DONE", len(possibilities))
-                tile.possibilities = possibilities
+                if ANXIETY_CURVE:
+                    for i in range(len(possibilities)):
+                        # print("check", tile.possibilities[i])
+                        # print("i",i)
+                        # print("possibility:", tile.possibilities[i], "possibilities:", len(tile.possibilities), "diff", tileDifficulty[tile.possibilities[i]][0], "supposed:", self.AC[x])
+                        if tileDifficulty[tile.possibilities[i]][0] is not self.AC[x]:
+                    # !!!!!!!!!!!!!! for AC: can cull the population on tile creation
+                            # print("REMOVED")
+                            possibilities.remove(tile.possibilities[i])
+                    # print("DONE", len(possibilities))
+                    tile.possibilities = possibilities
                 
                 tiles.append(tile)
                         # print("@@@@@@@@",len(tiles))
