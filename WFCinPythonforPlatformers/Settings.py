@@ -2,7 +2,7 @@
 
 INTERACTIVE = True
 INTERACTIVE_KEYPRESS = True
-WEIGHTED = True
+WEIGHTED = False
 
 ANXIETY_CURVE = True
 
@@ -25,11 +25,6 @@ Y_SCALE = 10
 #Directions 
 LEFT = 0
 RIGHT = 1
-
-# Difficulty Types:
-EASY = 0
-MEDIUM = 1
-HARD = 2 #Gotta add difficulty to each tile
 
 #Tile Types:
 EASY_STRAIGHT_LOW = 0
@@ -88,7 +83,7 @@ to be put together, a.k.a which tile is allowed to be next to which tile.
 """
 tileRules = {
     EASY_STRAIGHT_LOW : [LOW, LOW],
-    EASY_STRAIGHT_MID : [MID,MID],
+    EASY_STRAIGHT_MID : [MID, MID],
     EASY_STRAIGHT_TOP : [TOP, TOP],
     EASY_LOW_TO_MID : [LOW, MID],
     EASY_LOW_TO_TOP : [LOW, TOP],
@@ -116,7 +111,7 @@ tileRules = {
     MED_TOP_A : [TOP, TOP],
 
     HARD_STRAIGHT_LOW : [LOW,LOW],
-    HARD_STRAIGHT_MID : [MID,MID],
+    HARD_STRAIGHT_MID : [MID, MID],
     HARD_STRAIGHT_TOP : [TOP, TOP],
     HARD_LOW_TO_MID : [LOW, MID],
     HARD_LOW_TO_TOP : [LOW, TOP],
@@ -128,8 +123,56 @@ tileRules = {
     HARD_MID_A : [MID, MID],
     HARD_TOP_V : [TOP, TOP],
     HARD_TOP_A : [TOP, TOP]
+}
 
+# Difficulty Types:
+EASY = 0
+MEDIUM = 1
+HARD = 2 #Gotta add difficulty to each tile
 
+"""Tile difficulty rules"""
+tileDifficulty = {
+    EASY_STRAIGHT_LOW : [EASY],
+    EASY_STRAIGHT_MID : [EASY],
+    EASY_STRAIGHT_TOP : [EASY],
+    EASY_LOW_TO_MID : [EASY],
+    EASY_LOW_TO_TOP : [EASY],
+    EASY_MID_TO_LOW : [EASY],
+    EASY_MID_TO_TOP : [EASY],
+    EASY_TOP_TO_MID : [EASY],
+    EASY_TOP_TO_LOW : [EASY],
+    EASY_MID_V : [EASY],
+    EASY_MID_A : [EASY],
+    EASY_TOP_V : [EASY],
+    EASY_TOP_A : [EASY],
+
+    MED_STRAIGHT_LOW : [MEDIUM],
+    MED_STRAIGHT_MID : [MEDIUM],
+    MED_STRAIGHT_TOP : [MEDIUM],
+    MED_LOW_TO_MID : [MEDIUM],
+    MED_LOW_TO_TOP : [MEDIUM],
+    MED_MID_TO_LOW : [MEDIUM],
+    MED_MID_TO_TOP : [MEDIUM],
+    MED_TOP_TO_MID : [MEDIUM],
+    MED_TOP_TO_LOW : [MEDIUM],
+    MED_MID_V : [MEDIUM],
+    MED_MID_A : [MEDIUM],
+    MED_TOP_V : [MEDIUM],
+    MED_TOP_A : [MEDIUM],
+
+    HARD_STRAIGHT_LOW : [HARD],
+    HARD_STRAIGHT_MID : [HARD],
+    HARD_STRAIGHT_TOP : [HARD],
+    HARD_LOW_TO_MID : [HARD],
+    HARD_LOW_TO_TOP : [HARD],
+    HARD_MID_TO_LOW : [HARD],
+    HARD_MID_TO_TOP : [HARD],
+    HARD_TOP_TO_MID : [HARD],
+    HARD_TOP_TO_LOW : [HARD],
+    HARD_MID_V : [HARD],
+    HARD_MID_A : [HARD],
+    HARD_TOP_V : [HARD],
+    HARD_TOP_A : [HARD]
 }
 
 """Tile Weights
