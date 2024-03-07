@@ -39,25 +39,17 @@ class Level:
                 tile = Tile(x,y)
                 possibilities = tile.possibilities.copy()
                 
-                if ANXIETY_CURVE:
+                if ANXIETY_CURVE: # Only culls the tiles if user wants to generate with anxiety curve parameter
                     for i in range(len(possibilities)):
-                        # print("check", tile.possibilities[i])
-                        # print("i",i)
-                        # print("possibility:", tile.possibilities[i], "possibilities:", len(tile.possibilities), "diff", tileDifficulty[tile.possibilities[i]][0], "supposed:", self.AC[x])
+
                         if tileDifficulty[tile.possibilities[i]][0] is not self.AC[x]:
-                    # !!!!!!!!!!!!!! for AC: can cull the population on tile creation
-                            # print("REMOVED")
                             possibilities.remove(tile.possibilities[i])
-                    # print("DONE", len(possibilities))
+
                     tile.possibilities = possibilities
                 
                 tiles.append(tile)
-                        # print("@@@@@@@@",len(tiles))
-                # print("tilepossibilities:",tile.possibilities)
-                # print("tileSSSSS",len(tiles),tiles)
+
             self.tileRows.append(tiles)
-            print("TRPOSS",self.tileRows[0][0].possibilities)
-            # print("tilerows",len(self.tileRows[0]))
             
 
         for y in range(sizeY):
@@ -66,20 +58,11 @@ class Level:
 
                 # Adds neighbouring tiles to a list, 
                 # for checking left and right sides of current tile
-                # so that after collapse probability can be propagated
+                # so that after collapse step probability can be propagated
                 if x < sizeX - 1:
                     tile.addNeighbour(RIGHT, self.tileRows[y][x+1])
                 if x > 0: 
                     tile.addNeighbour(LEFT, self.tileRows[y][x-1])
-        
-        #!!!!!!!!!!!!!!!!!!!!!!!!
-                    #COULD USE '.index(elem)' TO CHECK TILE INDEX, WHERE ELEMENT IS TILE OBJ
-        # for i in range(len(self.tileRows[0])):
-            # print (i) #0 to 14 (a.k.a the index of the tiles!)
-        
-        # print(self.tileRows)
-        # print(len(self.tileRows[0]))
-        #!!!!!!!!!!!!!!!!!!!!!!!!
 
 
     def getEntropy(self, x, y):
