@@ -27,8 +27,7 @@ class Level:
         is to map all neighbours of a tile to that tile's `neighbours` atribute. 
         """
 
-        self.AC = AC
-
+        self.AC = AC # Anxiety curve list from the Settings.py file
         self.cols = sizeX
         self.rows = sizeY
 
@@ -98,7 +97,7 @@ class Level:
 
     def getTilesLowestEntropy(self):
         """Returns list of lowest entropy tiles."""
-        
+
         lowest = len(list(tileRules.keys()))
         tileList = []
 
@@ -133,33 +132,31 @@ class Level:
         affects which tile is possible to be collapsed next.
         """
 
-        tilesLowestEntropy = self.getTilesLowestEntropy() # list of lowest entropy tile objects.
+        tilesLowestEntropy = self.getTilesLowestEntropy() # list of lowest entropy tile objects
 
-        if tilesLowestEntropy == []: # If there is no lowest entropy WFC is finished.
+        if tilesLowestEntropy == []: # If there is no lowest entropy WFC is finished
             return 0
 
-        tileToCollapse = random.choice(tilesLowestEntropy) # Choose random tile from lowest entropy tiles.
-        # index = self.getCell(tileToCollapse)
-        # tileToCollapse.collapseAC(diff=self.AC[index]) # Collapse chosen tile.
+        tileToCollapse = random.choice(tilesLowestEntropy) # Choose random tile from lowest entropy tiles
         tileToCollapse.collapse()
+       
         stack = Stack()
         stack.push(tileToCollapse)
 
         while(not stack.is_empty()):
             tile = stack.pop()
-            tilePossibilities = tile.getPossibilities() # Which tiles are allowed next to current tile.
+            tilePossibilities = tile.getPossibilities() # Which tiles are allowed next to current tile
             
             # Direction to propagate the possibilities, 
             # since this is implementation is simplified as a 1D problem 
-            # it can only have up to 2 directions (left and right).
+            # it can only have up to 2 directions (left and right)
             directions = tile.getDirections() 
 
             for direction in directions:
                 neighbour = tile.getNeighbour(direction)
 
-                # Constrain possibilities of neighbouring tiles.
+                # Constrain possibilities of neighbouring tiles
                 if neighbour.entropy != 0:
-                    # reduced = neighbour.constrain(tilePossibilities, direction)
                     reduced = neighbour.constrain(tilePossibilities, direction)
 
                     if reduced == True:
