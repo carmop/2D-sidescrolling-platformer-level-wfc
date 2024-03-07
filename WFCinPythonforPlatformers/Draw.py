@@ -33,10 +33,7 @@ class DrawLevel:
         for y in range(LEVEL_H):
              for x in range(LEVEL_LENGTH):
                 tile_entropy = self.level.getEntropy(x, y)
-                # print("YYY",y)
-                # print("XxXxX",x)
                 tile_type = self.level.getType(x, y)
-                # print('tileType:', tile_type)
                 # Different entropy values will be written with different colors.
                 if tile_entropy > 0:
                     tile_image = pygame.Surface((X_TILE, Y_TILE))
