@@ -6,6 +6,17 @@ WEIGHTED = False
 
 ANXIETY_CURVE = True
 
+"""Anxiety Curve Value List
+
+This list defines where tiles of a certain difficulty must be placed in the level.
+If the level size (LEVEL_LENGTH variable) changes 
+the size of this list must be changed as well.
+"""
+
+# AC = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+# AC = [0,1,0,1,0,1,0,1,0,1,0,1,0,1,2]
+AC = [0,0,0,0,0,1,1,1,1,1,2,2,2,2,2]
+
 #Path to spritesheet
 SPRITESHEET_PATH = "images/debug_sprites.png"
 
