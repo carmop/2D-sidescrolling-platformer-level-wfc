@@ -32,8 +32,8 @@ class Tile:
     def __init__(self, x, y):
         """Defines class' atributes."""
 
-        self.possibilities = list(tileRules.keys()) # `tileRules` is a dict in Settings.py.
-        self.entropy = len(self.possibilities) # Just how many possibilities a tile can have.
+        self.possibilities = list(tileRules.keys()) # `tileRules` is a dict in Settings.py
+        self.entropy = len(self.possibilities) # Just how many possibilities a tile can have
         self.neighbours = dict()
         
         self.difficulties = list(tileDifficulty.keys()) 
@@ -66,7 +66,7 @@ class Tile:
     def collapse(self):
         """Picks a random tile from available possibilities, may be a weighted selection."""
 
-        if WEIGHTED: # WEIGHTED can be set to True of False in Settings.py.
+        if WEIGHTED: # WEIGHTED can be set to True of False in Settings.py
             weight = [tileWeights[possibility] for possibility in self.possibilities]
             self.possibilities = random.choices(self.possibilities, weights=weight, k=1)
             self.entropy = 0
@@ -83,7 +83,7 @@ class Tile:
             if self.entropy > 0:
                 connectors = []
 
-                # Add neighbouring tiles to `connectors` list.
+                # Add neighbouring tiles to `connectors` list
                 for neighbourPossibility in neighbourPossibilities:
                     connectors.append(tileRules[neighbourPossibility][direction])
 
@@ -93,10 +93,10 @@ class Tile:
                 if direction == LEFT:
                     opposite = RIGHT
                 
-                # If a possibility does not fit next to current tile remove it.
+                # If a possibility does not fit next to current tile remove it
                 for possibility in self.possibilities.copy():
 
-                    # Checks current tile edge with opposite edge from neighbour.
+                    # Checks current tile edge with opposite edge from neighbour
                     if tileRules[possibility][opposite] not in connectors:
                         self.possibilities.remove(possibility)
                         reduced = True
