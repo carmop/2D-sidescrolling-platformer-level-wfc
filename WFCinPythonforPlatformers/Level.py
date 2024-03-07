@@ -16,8 +16,17 @@ class Level:
     """
 
     def __init__(self, sizeX, sizeY) -> None:
+        """Level class that represents the environment of the platformer level.
         
-        # self.AC = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+        The class creates an array (of size determined by LEVEL_LENGTH variable in Settings.py file)
+        populated with tile objects which can have their `possibilities` atribute
+        include all tile possibilities or include only the 
+        tile possibilities that follow the anxiety curve (that is also determined in the Settings.py file, as the `AC variable).
+
+        The final step in generating the array that represents the level 
+        is to map all neighbours of a tile to that tile's `neighbours` atribute. 
+        """
+
         self.AC = AC
 
         self.cols = sizeX
