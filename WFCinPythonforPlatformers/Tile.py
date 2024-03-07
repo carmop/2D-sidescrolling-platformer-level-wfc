@@ -1,4 +1,5 @@
 import random
+from AC import AnxietyCurve
 from Settings import *
 
 class Tile:
@@ -45,6 +46,7 @@ class Tile:
         
         self.difficulties = list(tileDifficulty.keys()) #!!!!!!!!!!!!!!
         # print("POSSIBILITIES", self.possibilities)
+        # self.diff = AnxietyCurve().AC[x]
 
 
     def addNeighbour(self, direction, tile):

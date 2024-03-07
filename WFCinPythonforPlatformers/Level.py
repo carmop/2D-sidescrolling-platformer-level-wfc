@@ -3,6 +3,8 @@ from Tile import Tile
 from Stack import Stack
 from Settings import *
 
+from AC import AnxietyCurve
+
 class Level:
     """Performs WFC and propagates probabilities by using the tiles' entropy values. 
     
@@ -15,7 +17,8 @@ class Level:
 
     def __init__(self, sizeX, sizeY) -> None:
         
-        self.AC = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+        # self.AC = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+        self.AC = AnxietyCurve().AC
 
         self.cols = sizeX
         self.rows = sizeY
@@ -25,9 +28,28 @@ class Level:
             tiles = []
             for x in range(sizeX):
                 tile = Tile(x,y)
+                possibilities = tile.possibilities.copy()
+                
+                # print(len(tile.possibilities), len(tileDifficulty))
+                for i in range(len(possibilities)):
+                    # print("check", tile.possibilities[i])
+                    # print("i",i)
+                    # print("possibility:", tile.possibilities[i], "possibilities:", len(tile.possibilities), "diff", tileDifficulty[tile.possibilities[i]][0], "supposed:", self.AC[x])
+                    if tileDifficulty[tile.possibilities[i]][0] is not self.AC[x]:
                 # !!!!!!!!!!!!!! for AC: can cull the population on tile creation
+                        # print("REMOVED")
+                        possibilities.remove(tile.possibilities[i])
+                # print("DONE", len(possibilities))
+                tile.possibilities = possibilities
+                
                 tiles.append(tile)
+                        # print("@@@@@@@@",len(tiles))
+                # print("tilepossibilities:",tile.possibilities)
+                # print("tileSSSSS",len(tiles),tiles)
             self.tileRows.append(tiles)
+            print("TRPOSS",self.tileRows[0][0].possibilities)
+            # print("tilerows",len(self.tileRows[0]))
+            
 
         for y in range(sizeY):
             for x in range(sizeX):
@@ -62,7 +84,10 @@ class Level:
         The possibilities list is a list made from the key values
         of the dictionary of adjecency rules.
         """
-        return self.tileRows[y][x].possibilities[0]
+        # print("TYPE:", self.tileRows[y][14].possibilities[0])
+        # print("XXXXXXX:",x)
+        print("TR", self.tileRows[0][0].possibilities)
+        return self.tileRows[y][x].possibilities[0] 
     
 
     def getLowestEntropy(self):
@@ -121,9 +146,9 @@ class Level:
             return 0
 
         tileToCollapse = random.choice(tilesLowestEntropy) # Choose random tile from lowest entropy tiles.
-        index = self.getCell(tileToCollapse)
-        tileToCollapse.collapseAC(diff=self.AC[index]) # Collapse chosen tile.
-
+        # index = self.getCell(tileToCollapse)
+        # tileToCollapse.collapseAC(diff=self.AC[index]) # Collapse chosen tile.
+        tileToCollapse.collapse()
         stack = Stack()
         stack.push(tileToCollapse)
 
@@ -142,7 +167,7 @@ class Level:
                 # Constrain possibilities of neighbouring tiles.
                 if neighbour.entropy != 0:
                     # reduced = neighbour.constrain(tilePossibilities, direction)
-                    reduced = neighbour.constrainWithAnxiety(tilePossibilities, direction)
+                    reduced = neighbour.constrain(tilePossibilities, direction)
 
                     if reduced == True:
                         stack.push(neighbour)    # When possibilities were reduced need to propagate further
