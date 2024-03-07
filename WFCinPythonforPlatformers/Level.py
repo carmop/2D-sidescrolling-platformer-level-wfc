@@ -67,6 +67,7 @@ class Level:
 
     def getEntropy(self, x, y):
         """Returns entropy of tile object."""
+
         return self.tileRows[y][x].entropy
 
 
@@ -76,14 +77,13 @@ class Level:
         The possibilities list is a list made from the key values
         of the dictionary of adjecency rules.
         """
-        # print("TYPE:", self.tileRows[y][14].possibilities[0])
-        # print("XXXXXXX:",x)
-        print("TR", self.tileRows[0][0].possibilities)
+
         return self.tileRows[y][x].possibilities[0] 
     
 
     def getLowestEntropy(self):
         """Returns  which entropy value is the lowest in current WFC step."""
+
         lowest = len(list(tileRules.keys()))
 
         for y in range(self.rows):
@@ -98,6 +98,7 @@ class Level:
 
     def getTilesLowestEntropy(self):
         """Returns list of lowest entropy tiles."""
+        
         lowest = len(list(tileRules.keys()))
         tileList = []
 
