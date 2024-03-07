@@ -32,21 +32,11 @@ class Tile:
     def __init__(self, x, y):
         """Defines class' atributes."""
 
-        # total_possibilities = tileRules.keys()
-        # print(total_possibilities)
-        # self.possibilities =[]
-
-        # for possible_tile in total_possibilities:
-        #     if possible_tile
-        #         self.possibilities.append(possible_tile)
-
         self.possibilities = list(tileRules.keys()) # `tileRules` is a dict in Settings.py.
         self.entropy = len(self.possibilities) # Just how many possibilities a tile can have.
         self.neighbours = dict()
         
-        self.difficulties = list(tileDifficulty.keys()) #!!!!!!!!!!!!!!
-        # print("POSSIBILITIES", self.possibilities)
-        # self.diff = AnxietyCurve().AC[x]
+        self.difficulties = list(tileDifficulty.keys()) 
 
 
     def addNeighbour(self, direction, tile):
@@ -81,33 +71,8 @@ class Tile:
             self.possibilities = random.choices(self.possibilities, weights=weight, k=1)
             self.entropy = 0
         else:
-            # ADD A CHECK FOR ADDING 1st TILE WITH CORRECT DIFF
-            # if  not in Level.AC[Level.getCell(t)]!!!!!!!!!!!
             self.possibilities = random.choices(self.possibilities, weights=None, k=1)
             self.entropy = 0
-
-
-    def collapseAC(self, diff): # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        """"""
-
-        if WEIGHTED: # WEIGHTED can be set to True of False in Settings.py.
-            weight = [tileWeights[possibility] for possibility in self.possibilities]
-            self.possibilities = random.choices(self.possibilities, weights=weight, k=1)
-            self.entropy = 0
-        else:
-            # ADD A CHECK FOR ADDING 1st TILE WITH CORRECT DIFF
-            # if  not in Level.AC[Level.getCell(t)]!!!!!!!!!!!
-            while True:
-                self.possibilities = random.choices(self.possibilities, weights=None, k=1)
-                # print("@@@@@@@@",type(self.possibilities))
-                print("DIFF",diff,"POS",tileDifficulty[self.possibilities[0]][0])
-                if tileDifficulty[self.possibilities[0]][0] == diff:
-                    self.entropy = 0
-                    print("B")
-                    break
-                else:
-                    self.possibilities = list(tileRules.keys())
-                    print("C")
 
 
     def constrain(self, neighbourPossibilities, direction):
@@ -133,39 +98,6 @@ class Tile:
 
                     # Checks current tile edge with opposite edge from neighbour.
                     if tileRules[possibility][opposite] not in connectors:
-                        self.possibilities.remove(possibility)
-                        reduced = True
-
-                self.entropy = len(self.possibilities)
-
-            return reduced
-        
-        
-    def constrainWithAnxiety(self, neighbourPossibilities, direction): #!!!!!!!!!!!!!!!
-            """Returns true if possibilities have been completely reduced."""
-
-            reduced = False
-
-            if self.entropy > 0:
-                connectors = []
-                diff = [1] #!!!!!!!!!!!
-
-                # Add neighbouring tiles to `connectors` list.
-                for neighbourPossibility in neighbourPossibilities:
-                    connectors.append(tileRules[neighbourPossibility][direction])
-
-                if direction == RIGHT:
-                    opposite = LEFT
-
-                if direction == LEFT:
-                    opposite = RIGHT
-                
-                for possibility in self.possibilities.copy():
-
-                    # Checks current tile edge with opposite edge from neighbour.
-                    # If a possibility does not fit next to current tile remove it.
-                    if (tileRules[possibility][opposite] not in connectors or 
-                        tileDifficulty[possibility][0] not in diff): #!!!!!!!!!!!!
                         self.possibilities.remove(possibility)
                         reduced = True
 
