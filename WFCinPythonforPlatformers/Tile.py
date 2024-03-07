@@ -1,5 +1,5 @@
 import random
-from AC import AnxietyCurve
+# from AC import AnxietyCurve
 from Settings import *
 
 class Tile:

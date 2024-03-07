@@ -3,7 +3,7 @@ from Tile import Tile
 from Stack import Stack
 from Settings import *
 
-from AC import AnxietyCurve
+# from AC import AnxietyCurve
 
 class Level:
     """Performs WFC and propagates probabilities by using the tiles' entropy values. 
@@ -18,7 +18,7 @@ class Level:
     def __init__(self, sizeX, sizeY) -> None:
         
         # self.AC = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
-        self.AC = AnxietyCurve().AC
+        self.AC = AC
 
         self.cols = sizeX
         self.rows = sizeY
