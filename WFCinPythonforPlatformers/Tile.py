@@ -84,6 +84,7 @@ class Tile:
                 connectors = []
 
                 # Add neighbouring tiles to `connectors` list
+                # The list contains the integers that represent tile edges
                 for neighbourPossibility in neighbourPossibilities:
                     connectors.append(tileRules[neighbourPossibility][direction])
 
@@ -95,7 +96,7 @@ class Tile:
                 
                 # If a possibility does not fit next to current tile remove it
                 for possibility in self.possibilities.copy():
-
+                    
                     # Checks current tile edge with opposite edge from neighbour
                     if tileRules[possibility][opposite] not in connectors:
                         self.possibilities.remove(possibility)
