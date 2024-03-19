@@ -41,7 +41,22 @@ Y_SCALE = 1
 LEFT = 0
 RIGHT = 1
 
-#Tile Types:
+# Difficulty Types:
+EASY = 0 # Tiles that have no way to harm the player
+MEDIUM = 1 # Tiles that have total gaps <= 4 tiles wide
+HARD = 2 # Tiles that have total gaps >=5 tiles wide
+
+#Tile Sides:
+LOW = 2 # Represents floor height of 2, 3, 4, 5, 6 (starting a min floor, which is 2, and going up by 4 tiles, which is Marios max jump height w/o run-up)
+MID = 7 # 7, 8, 9, 10
+TOP = 11 # 11, 12, 13, 14
+
+
+"""Tile Types 
+
+And id that describes each individual tile so that 
+they can be reffered to during collapse and constrain.
+"""
 TILE_001 = 1 # Level 1-3
 TILE_002 = 2
 TILE_003 = 3
@@ -286,18 +301,12 @@ TILE_181DD = 181
 TILE_181DDD = 181
 TILE_183D = 183
 
-#Tile Sides:
-
-LOW = 2 # Represents floor height of 2, 3, 4, 5, 6 (starting a min floor, which is 2, and going up by 4 tiles, which is Marios max jump height w/o run-up)
-MID = 7 # 7, 8, 9, 10
-TOP = 11 # 11, 12, 13, 14
 
 """Tile Rules (also called "adjecency" rules)
 
 There sets of rules represent the way in which the tiles are allowed
 to be put together, a.k.a which tile is allowed to be next to which tile.
 """
-
 tileRules = {
     TILE_001 : [LOW, LOW],
     TILE_002 : [LOW, LOW],
@@ -543,12 +552,11 @@ tileRules = {
     
 }
 
-# # Difficulty Types:
-EASY = 0 # Tiles that have no way to harm the player
-MEDIUM = 1 # Tiles that have total gaps <= 4 tiles wide
-HARD = 2 # Tiles that have total gaps >=5 tiles wide
 
-"""Tile difficulty rules"""
+"""Tile Difficulty
+
+Difficulty values aassociated with each tile.
+"""
 tileDifficulty = {
 
     TILE_001 : [EASY],
@@ -987,7 +995,7 @@ tileWeights = {
     TILE_183 : 1,
     TILE_184 : 1,
     TILE_185 : 1,
-    
+
     # Duplicates:
     TILE_005D : 1,
     TILE_015D : 1,
@@ -1048,6 +1056,12 @@ tileWeights = {
 
 }
 
+
+"""Tile Sprites
+
+Location in the image file (refered in `SPRITE_PATH` variable) 
+where each tile starts.
+"""
 tileSprites = {
     TILE_001 : (0, 0),
     TILE_002 : (160, 0),
