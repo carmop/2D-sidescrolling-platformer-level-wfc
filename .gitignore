@@ -5,3 +5,5 @@ addons/
 # python related ignore
 
 __pycache__
+
+result_images
