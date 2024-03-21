@@ -1,7 +1,7 @@
 #Controls
 
 INTERACTIVE = True
-INTERACTIVE_KEYPRESS = True
+INTERACTIVE_KEYPRESS = False
 WEIGHTED = False
 
 ANXIETY_CURVE = True
@@ -15,9 +15,13 @@ If the level size (LEVEL_LENGTH variable) changes
 the size of this list must be changed as well.
 """
 
-AC = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-# AC = [0,1,0,1,0,1,0,1,0,1,0,1,0,1,2]
-# AC = [0,0,0,0,0,1,1,1,1,1,2,2,2,2,2]
+# AC = [0,0,0,0,0,0,0,0,0,0]
+# AC = [0,1,0,1,0,1,0,1,0,1] # Alternating EASY and MEDIUM difficulty 
+# AC = [1,1,1,1,1,1,1,1,1,1]
+# AC = [0,0,0,1,1,1,1,2,2,2] # Rising difficulty
+AC = [0,1,1,1,2,2,1,1,1,0] # Peak difficult at center of level
+# AC = [2,2,0,0,0,0,0,0,2,2] # `Valley` difficulty
+# AC = [2,2,2,2,2,2,2,2,2,2]
 
 #Path to spritesheet
 # SPRITESHEET_PATH = "images/tiles/SMB_Sprites_w_Background.png" # Sprites including enemies 
@@ -301,6 +305,51 @@ TILE_181DD = 181
 TILE_181DDD = 181
 TILE_183D = 183
 
+# Addendum Tiles
+
+TILE_ADDENDUM_1 = 1001
+TILE_ADDENDUM_2 = 1002
+TILE_ADDENDUM_3 = 1003
+TILE_ADDENDUM_4 = 1004
+TILE_ADDENDUM_5 = 1005
+TILE_ADDENDUM_6 = 1006
+TILE_ADDENDUM_7 = 1007
+TILE_ADDENDUM_8 = 1008
+TILE_ADDENDUM_9 = 1009
+
+# ALL CONNECTORS
+
+TILE_ALL_1LL =1010,
+TILE_ALL_1MM =1010,
+TILE_ALL_1TT =1010,
+TILE_ALL_1LM =1010,
+TILE_ALL_1LT =1010,
+TILE_ALL_1ML =1010,
+TILE_ALL_1MT =1010,
+TILE_ALL_1TL =1010,
+TILE_ALL_1TM =1010,
+
+TILE_ALL_2LL =1020,
+TILE_ALL_2MM =1020,
+TILE_ALL_2TT =1020,
+TILE_ALL_2LM =1020,
+TILE_ALL_2LT =1020,
+TILE_ALL_2ML =1020,
+TILE_ALL_2MT =1020,
+TILE_ALL_2TL =1020,
+TILE_ALL_2TM =1020,
+
+TILE_ALL_3LL =1030,
+TILE_ALL_3MM =1030,
+TILE_ALL_3TT =1030,
+TILE_ALL_3LM =1030,
+TILE_ALL_3LT =1030,
+TILE_ALL_3ML =1030,
+TILE_ALL_3MT =1030,
+TILE_ALL_3TL =1030,
+TILE_ALL_3TM =1030,
+
+
 
 """Tile Rules (also called "adjecency" rules)
 
@@ -550,6 +599,50 @@ tileRules = {
     TILE_184 : [LOW, LOW],
     TILE_185 : [LOW, MID],
     
+    # Addendum Tiles:
+
+    TILE_ADDENDUM_1 : [TOP, TOP],
+    TILE_ADDENDUM_2 : [TOP, TOP],
+    TILE_ADDENDUM_3 : [LOW, TOP],
+    TILE_ADDENDUM_4 : [MID, LOW],
+    TILE_ADDENDUM_5 : [MID, TOP],
+    TILE_ADDENDUM_6 : [MID, TOP],
+    TILE_ADDENDUM_7 : [MID, TOP],
+    TILE_ADDENDUM_8 : [TOP, LOW],
+    TILE_ADDENDUM_9 : [TOP, MID],
+
+    # ALL CONNECTORS
+
+    TILE_ALL_1LL : [LOW,LOW],
+    TILE_ALL_1MM : [MID,MID],
+    TILE_ALL_1TT : [TOP,TOP],
+    TILE_ALL_1LM : [LOW,MID],
+    TILE_ALL_1LT : [LOW,TOP],
+    TILE_ALL_1ML : [MID,LOW],
+    TILE_ALL_1MT : [MID,TOP],
+    TILE_ALL_1TL : [TOP,LOW],
+    TILE_ALL_1TM : [TOP,MID],
+
+    TILE_ALL_2LL : [LOW,LOW],
+    TILE_ALL_2MM : [MID,MID],
+    TILE_ALL_2TT : [TOP,TOP],
+    TILE_ALL_2LM : [LOW,MID],
+    TILE_ALL_2LT : [LOW,TOP],
+    TILE_ALL_2ML : [MID,LOW],
+    TILE_ALL_2MT : [MID,TOP],
+    TILE_ALL_2TL : [TOP,LOW],
+    TILE_ALL_2TM : [TOP,MID],
+
+    TILE_ALL_3LL : [LOW,LOW],
+    TILE_ALL_3MM : [MID,MID],
+    TILE_ALL_3TT : [TOP,TOP],
+    TILE_ALL_3LM : [LOW,MID],
+    TILE_ALL_3LT : [LOW,TOP],
+    TILE_ALL_3ML : [MID,LOW],
+    TILE_ALL_3MT : [MID,TOP],
+    TILE_ALL_3TL : [TOP,LOW],
+    TILE_ALL_3TM : [TOP,MID],
+
 }
 
 
@@ -558,251 +651,294 @@ tileRules = {
 Difficulty values aassociated with each tile.
 """
 tileDifficulty = {
+    TILE_001: [EASY],
+    TILE_002: [MEDIUM],
+    TILE_003: [EASY],
+    TILE_004: [MEDIUM],
+    TILE_005: [EASY],
+    TILE_005D: [EASY],
+    TILE_006: [MEDIUM],
+    TILE_007: [HARD],
+    TILE_008: [HARD],
+    TILE_009: [MEDIUM],
+    TILE_010: [EASY],
+    TILE_011: [MEDIUM],
+    TILE_012: [EASY],
+    TILE_013: [EASY],
+    TILE_014: [EASY],
+    TILE_015: [MEDIUM],
+    TILE_015D: [MEDIUM],
+    TILE_016: [MEDIUM],
+    TILE_017: [MEDIUM],
+    TILE_017D: [MEDIUM],
+    TILE_018: [HARD],
+    TILE_019: [EASY],
+    TILE_019D: [EASY],
+    TILE_020: [MEDIUM],
+    TILE_020D: [MEDIUM],
+    TILE_021: [MEDIUM],
+    TILE_022: [MEDIUM],
+    TILE_023: [MEDIUM],
+    TILE_024: [MEDIUM],
+    TILE_025: [MEDIUM],
+    TILE_025D: [MEDIUM],
+    TILE_026: [MEDIUM],
+    TILE_026D: [MEDIUM],
+    TILE_027: [EASY],
+    TILE_028: [EASY],
+    TILE_029: [EASY],
+    TILE_030: [EASY],
+    TILE_031: [EASY],
+    TILE_032: [MEDIUM],
+    TILE_033: [MEDIUM],
+    TILE_034: [MEDIUM],
+    TILE_035: [MEDIUM],
+    TILE_036: [EASY],
+    TILE_037: [MEDIUM],
+    TILE_038: [EASY],
+    TILE_039: [MEDIUM],
+    TILE_040: [EASY],
+    TILE_040D: [EASY],
+    TILE_041: [MEDIUM],
+    TILE_042: [MEDIUM],
+    TILE_043: [HARD],
+    TILE_044: [MEDIUM],
+    TILE_045: [HARD],
+    TILE_046: [MEDIUM],
+    TILE_046D: [MEDIUM],
+    TILE_047: [MEDIUM],
+    TILE_048: [MEDIUM],
+    TILE_049: [HARD],
+    TILE_049D: [HARD],
+    TILE_050: [MEDIUM],
+    TILE_051: [MEDIUM],
+    TILE_052: [MEDIUM],
+    TILE_053: [MEDIUM],
+    TILE_054: [MEDIUM],
+    TILE_054D: [MEDIUM],
+    TILE_055: [MEDIUM],
+    TILE_055D: [MEDIUM],
+    TILE_056: [EASY],
+    TILE_056D: [EASY],
+    TILE_057: [MEDIUM],
+    TILE_057D: [MEDIUM],
+    TILE_058: [HARD],
+    TILE_059: [HARD],
+    TILE_060: [MEDIUM],
+    TILE_060D: [MEDIUM],
+    TILE_061: [MEDIUM],
+    TILE_062: [MEDIUM],
+    TILE_063: [MEDIUM],
+    TILE_064: [EASY],
+    TILE_065: [MEDIUM],
+    TILE_066: [MEDIUM],
+    TILE_067: [MEDIUM],
+    TILE_068: [HARD],
+    TILE_069: [MEDIUM],
+    TILE_070: [EASY],
+    TILE_071: [EASY],
+    TILE_071D: [EASY],
+    TILE_072: [EASY],
+    TILE_072D: [EASY],
+    TILE_073: [MEDIUM],
+    TILE_074: [MEDIUM],
+    TILE_074D: [MEDIUM],
+    TILE_074DD: [MEDIUM],
+    TILE_075: [HARD],
+    TILE_076: [HARD],
+    TILE_076D: [HARD],
+    TILE_076DD: [HARD],
+    TILE_077: [MEDIUM],
+    TILE_078: [MEDIUM],
+    TILE_079: [MEDIUM],
+    TILE_080: [HARD],
+    TILE_081: [MEDIUM],
+    TILE_082: [MEDIUM],
+    TILE_083: [HARD],
+    TILE_084: [MEDIUM],
+    TILE_085: [HARD],
+    TILE_086: [MEDIUM],
+    TILE_087: [MEDIUM],
+    TILE_088: [MEDIUM],
+    TILE_089: [EASY],
+    TILE_089D: [EASY],
+    TILE_090: [EASY],
+    TILE_091: [MEDIUM],
+    TILE_091D: [MEDIUM],
+    TILE_092: [MEDIUM],
+    TILE_093: [MEDIUM],
+    TILE_094: [MEDIUM],
+    TILE_094D: [MEDIUM],
+    TILE_095: [MEDIUM],
+    TILE_095D: [MEDIUM],
+    TILE_096: [MEDIUM],
+    TILE_096D: [MEDIUM],
+    TILE_097: [MEDIUM],
+    TILE_098: [MEDIUM],
+    TILE_099: [MEDIUM],
+    TILE_100: [MEDIUM],
+    TILE_101: [MEDIUM],
+    TILE_102: [MEDIUM],
+    TILE_103: [EASY],
+    TILE_103D: [EASY],
+    TILE_104: [MEDIUM],
+    TILE_105: [MEDIUM],
+    TILE_106: [MEDIUM],
+    TILE_107: [MEDIUM],
+    TILE_108: [EASY],
+    TILE_109: [MEDIUM],
+    TILE_110: [MEDIUM],
+    TILE_110D: [MEDIUM],
+    TILE_111: [MEDIUM],
+    TILE_112: [MEDIUM],
+    TILE_113: [MEDIUM],
+    TILE_114: [MEDIUM],
+    TILE_114D: [MEDIUM],
+    TILE_115: [MEDIUM],
+    TILE_115D: [MEDIUM],
+    TILE_116: [MEDIUM],
+    TILE_117: [MEDIUM],
+    TILE_117D: [MEDIUM],
+    TILE_118: [MEDIUM],
+    TILE_118D: [MEDIUM],
+    TILE_119: [MEDIUM],
+    TILE_120: [MEDIUM],
+    TILE_120D: [MEDIUM],
+    TILE_120DD: [MEDIUM],
+    TILE_120DDD: [MEDIUM],
+    TILE_121: [MEDIUM],
+    TILE_122: [MEDIUM],
+    TILE_123: [EASY],
+    TILE_124: [MEDIUM],
+    TILE_125: [MEDIUM],
+    TILE_125D: [MEDIUM],
+    TILE_126: [MEDIUM],
+    TILE_127: [MEDIUM],
+    TILE_128: [MEDIUM],
+    TILE_128D: [MEDIUM],
+    TILE_129: [HARD],
+    TILE_130: [MEDIUM],
+    TILE_131: [HARD],
+    TILE_131D: [HARD],
+    TILE_132: [MEDIUM],
+    TILE_133: [MEDIUM],
+    TILE_134D: [HARD],
+    TILE_135: [MEDIUM],
+    TILE_136D: [MEDIUM],
+    TILE_137: [MEDIUM],
+    TILE_138: [MEDIUM],
+    TILE_138D: [MEDIUM],
+    TILE_139: [EASY],
+    TILE_140: [MEDIUM],
+    TILE_141: [MEDIUM],
+    TILE_142: [MEDIUM],
+    TILE_143: [HARD],
+    TILE_144: [HARD],
+    TILE_145: [MEDIUM],
+    TILE_146: [EASY],
+    TILE_147: [HARD],
+    TILE_148: [HARD],
+    TILE_149: [MEDIUM],
+    TILE_150: [MEDIUM],
+    TILE_151: [HARD],
+    TILE_152: [HARD],
+    TILE_153: [MEDIUM],
+    TILE_153D: [MEDIUM],
+    TILE_154: [MEDIUM],
+    TILE_154D: [MEDIUM],
+    TILE_155: [HARD],
+    TILE_156: [HARD],
+    TILE_157: [MEDIUM],
+    TILE_158: [MEDIUM],
+    TILE_159: [HARD],
+    TILE_160: [HARD],
+    TILE_161: [MEDIUM],
+    TILE_162: [MEDIUM],
+    TILE_163: [EASY],
+    TILE_164: [EASY],
+    TILE_165: [MEDIUM],
+    TILE_166: [MEDIUM],
+    TILE_167: [HARD],
+    TILE_168: [HARD],
+    TILE_169: [EASY],
+    TILE_170: [MEDIUM],
+    TILE_170D: [MEDIUM],
+    TILE_170DD: [MEDIUM],
+    TILE_170DDD: [MEDIUM],
+    TILE_171: [MEDIUM],
+    TILE_171D: [MEDIUM],
+    TILE_171DD: [MEDIUM],
+    TILE_171DDD: [MEDIUM],
+    TILE_172: [MEDIUM],
+    TILE_172D: [MEDIUM],
+    TILE_172DD: [MEDIUM],
+    TILE_172DDD: [MEDIUM],
+    TILE_173: [MEDIUM],
+    TILE_174: [HARD],
+    TILE_175: [HARD],
+    TILE_176: [MEDIUM],
+    TILE_177: [MEDIUM],
+    TILE_178: [HARD],
+    TILE_179: [HARD],
+    TILE_180: [MEDIUM],
+    TILE_181: [MEDIUM],
+    TILE_181D: [MEDIUM],
+    TILE_181DD: [MEDIUM],
+    TILE_181DDD: [MEDIUM],
+    TILE_182: [MEDIUM],
+    TILE_183: [MEDIUM],
+    TILE_183D: [MEDIUM],
+    TILE_184: [MEDIUM],
+    TILE_185: [HARD],
 
-    TILE_001 : [EASY],
-    TILE_002 : [EASY],
-    TILE_003 : [EASY],
-    TILE_004 : [EASY],
-    TILE_005 : [EASY],
-    TILE_005D : [EASY], # Duplicate of prev. tile
-    TILE_006 : [EASY],
-    TILE_007 : [EASY],
-    TILE_008 : [EASY],
-    TILE_009 : [EASY],
-    TILE_010 : [EASY],
-    TILE_011 : [EASY],
-    TILE_012 : [EASY], 
-    TILE_013 : [EASY],
-    TILE_014 : [EASY],
-    TILE_015 : [EASY],
-    TILE_015D : [EASY], # Duplicate of prev. tile
-    TILE_016 : [EASY],
-    TILE_017 : [EASY],
-    TILE_017D : [EASY], # Duplicate of prev. tile
-    TILE_018 : [EASY],
-    TILE_019 : [EASY],
-    TILE_019D : [EASY], # Duplicate of prev. tile
-    TILE_020 : [EASY],
-    TILE_020D : [EASY], # Duplicate of prev. tile
-    TILE_021 : [EASY],
-    TILE_022 : [EASY],
-    TILE_023 : [EASY],
-    TILE_024 : [EASY],
-    TILE_025 : [EASY],
-    TILE_025D : [EASY], # Duplicate of prev. tile
-    TILE_026 : [EASY],
-    TILE_026D : [EASY], # Duplicate of prev. tile
-    TILE_027 : [EASY],
-    TILE_028 : [EASY],
-    TILE_029 : [EASY],
-    TILE_030 : [EASY],
-    TILE_031 : [EASY],
-    TILE_032 : [EASY],
-    TILE_033 : [EASY],
-    TILE_034 : [EASY],
-    TILE_035 : [EASY],
-    TILE_036 : [EASY],
-    TILE_037 : [EASY],
-    TILE_038 : [EASY],
-    TILE_039 : [EASY],
-    TILE_040 : [EASY],
-    TILE_040D : [EASY], # Duplicate of prev. tile
-    TILE_041 : [EASY],
-    TILE_042 : [EASY],
-    TILE_043 : [EASY],
-    TILE_044 : [EASY],
-    TILE_045 : [EASY],
-    TILE_046 : [EASY],
-    TILE_046D : [EASY], # Duplicate of prev. tile
-    TILE_047 : [EASY],
-    TILE_048 : [EASY],
-    TILE_049 : [EASY],
-    TILE_049D : [EASY], # Duplicate of prev. tile
-    TILE_050 : [EASY],
-    TILE_051 : [EASY],
-    TILE_052 : [EASY],
-    TILE_053 : [EASY],
-    TILE_054 : [EASY],
-    TILE_054D : [EASY], # Duplicate of prev. tile
-    TILE_055 : [EASY],
-    TILE_055D : [EASY], # Duplicate of prev. tile
-    TILE_056 : [EASY],
-    TILE_056D : [EASY], # Duplicate of prev. tile
-    TILE_057 : [EASY],
-    TILE_057D : [EASY], # Duplicate of prev. tile
-    TILE_058 : [EASY],
-    TILE_059 : [EASY],
-    TILE_060 : [EASY],
-    TILE_060D : [EASY], # Duplicate of prev. tile
-    TILE_061 : [EASY],
-    TILE_062 : [EASY],
-    TILE_063 : [EASY],
-    TILE_064 : [EASY],
-    TILE_065 : [EASY],
-    TILE_066 : [EASY],
-    TILE_067 : [EASY],
-    TILE_068 : [EASY],
-    TILE_069 : [EASY],
-    TILE_070 : [EASY],
-    TILE_071 : [EASY],
-    TILE_071D : [EASY], # Duplicate of prev. tile
-    TILE_072 : [EASY],
-    TILE_072D : [EASY], # Duplicate of prev. tile
-    TILE_073 : [EASY],
-    TILE_074 : [EASY],
-    TILE_074D : [EASY], # Duplicate of prev. tile
-    TILE_074DD : [EASY], # Duplicate of 74
-    TILE_075 : [EASY],
-    TILE_076 : [EASY],
-    TILE_076D : [EASY], # Duplicate of prev. tile
-    TILE_076DD : [EASY], # Duplicate of 76
-    TILE_077 : [EASY],
-    TILE_078 : [EASY],
-    TILE_079 : [EASY],
-    TILE_080 : [EASY],
-    TILE_081 : [EASY],
-    TILE_082 : [EASY],
-    TILE_083 : [EASY],
-    TILE_084 : [EASY],
-    TILE_085 : [EASY],
-    TILE_086 : [EASY],
-    TILE_087 : [EASY],
-    TILE_088 : [EASY],
-    TILE_089 : [EASY],
-    TILE_089D : [EASY], # Duplicate of prev. tile
-    TILE_090 : [EASY],
-    TILE_091 : [EASY],
-    TILE_091D : [EASY], # Duplicate of prev. tile
-    TILE_092 : [EASY],
-    TILE_093 : [EASY],
-    TILE_094 : [EASY],
-    TILE_094D : [EASY], # Duplicate of prev. tile
-    TILE_095 : [EASY],
-    TILE_095D : [EASY], # Duplicate of prev. tile
-    TILE_096 : [EASY],
-    TILE_096D : [EASY], # Duplicate of prev. tile
-    TILE_097 : [EASY],
-    TILE_098 : [EASY],
-    TILE_099 : [EASY],
-    TILE_100 : [EASY],
-    TILE_101 : [EASY],
-    TILE_102 : [EASY],
-    TILE_103 : [EASY],
-    TILE_103D : [EASY], # Duplicate of prev. tile
-    TILE_104 : [EASY],
-    TILE_105 : [EASY],
-    TILE_106 : [EASY],
-    TILE_107 : [EASY],
-    TILE_108 : [EASY],
-    TILE_109 : [EASY],
-    TILE_110 : [EASY],
-    TILE_110D : [EASY], # Duplicate of prev. tile
-    TILE_111 : [EASY],
-    TILE_112 : [EASY],
-    TILE_113 : [EASY],
-    TILE_114 : [EASY],
-    TILE_114D : [EASY], # Duplicate of prev. tile
-    TILE_115 : [EASY],
-    TILE_115D : [EASY], # Duplicate of prev. tile
-    TILE_116 : [EASY],
-    TILE_117 : [EASY],
-    TILE_117D : [EASY], # Duplicate of prev. tile
-    TILE_118 : [EASY],
-    TILE_118D : [EASY], # Duplicate of prev. tile
-    TILE_119 : [EASY],
-    TILE_120 : [EASY], 
-    TILE_120D : [EASY], # Duplicate of prev. tile
-    TILE_120DD : [EASY], # Duplicate of 120
-    TILE_120DDD : [EASY], # Duplicate of 120
-    TILE_121 : [EASY],
-    TILE_122 : [EASY],
-    TILE_123 : [EASY],
-    TILE_124 : [EASY],
-    TILE_125 : [EASY],
-    TILE_125D : [EASY], # Duplicate of prev. tile
-    TILE_126 : [EASY],
-    TILE_127 : [EASY],
-    TILE_128 : [EASY],
-    TILE_128D : [EASY], # Duplicate of prev. tile
-    TILE_129 : [EASY],
-    TILE_130 : [EASY],
-    TILE_131 : [EASY],
-    TILE_131D : [EASY], # Duplicate of prev. tile
-    TILE_132 : [EASY],
-    TILE_133 : [EASY],
-    TILE_134 : [EASY],
-    TILE_134D : [EASY], # Duplicate of prev. tile
-    TILE_135 : [EASY],
-    TILE_136 : [EASY],
-    TILE_136D : [EASY], # Duplicate of prev. tile
-    TILE_137 : [EASY],
-    TILE_138 : [EASY],
-    TILE_138D : [EASY], # Duplicate of prev. tile
-    TILE_139 : [EASY],
-    TILE_140 : [EASY],
-    TILE_141 : [EASY],
-    TILE_142 : [EASY],
-    TILE_143 : [EASY],
-    TILE_144 : [EASY],
-    TILE_145 : [EASY],
-    TILE_146 : [EASY],
-    TILE_147 : [EASY],
-    TILE_148 : [EASY],
-    TILE_149 : [EASY],
-    TILE_150 : [EASY],
-    TILE_151 : [EASY],
-    TILE_152 : [EASY],
-    TILE_153 : [EASY],
-    TILE_153D : [EASY], # Duplicate of prev. tile
-    TILE_154 : [EASY],
-    TILE_154D : [EASY], # Duplicate of prev. tile
-    TILE_155 : [EASY],
-    TILE_156 : [EASY],
-    TILE_157 : [EASY],
-    TILE_158 : [EASY],
-    TILE_159 : [EASY],
-    TILE_160 : [EASY],
-    TILE_161 : [EASY],
-    TILE_162 : [EASY],
-    TILE_163 : [EASY],
-    TILE_164 : [EASY],
-    TILE_165 : [EASY],
-    TILE_166 : [EASY],
-    TILE_167 : [EASY],
-    TILE_168 : [EASY],
-    TILE_169 : [EASY],
-    TILE_170 : [EASY], 
-    TILE_170D : [EASY], # Duplicate of prev. tile
-    TILE_170DD : [EASY], # Duplicate of 170
-    TILE_170DDD : [EASY], # Duplicate of 170
-    TILE_171 : [EASY],
-    TILE_171D : [EASY], # Duplicate of prev. tile
-    TILE_171DD : [EASY], # Duplicate of 171
-    TILE_171DDD : [EASY], # Duplicate of 171
-    TILE_172 : [EASY],
-    TILE_172D : [EASY], # Duplicate of prev. tile
-    TILE_172DD : [EASY], # Duplicate of 172
-    TILE_172DDD : [EASY], # Duplicate of 172
-    TILE_173 : [EASY],
-    TILE_174 : [EASY],
-    TILE_175 : [EASY],
-    TILE_176 : [EASY],
-    TILE_177 : [EASY],
-    TILE_178 : [EASY],
-    TILE_179 : [EASY],
-    TILE_180 : [EASY],
-    TILE_181 : [EASY],
-    TILE_181D : [EASY], # Duplicate of prev. tile
-    TILE_181DD : [EASY], # Duplicate of 181
-    TILE_181DDD : [EASY], # Duplicate of 181
-    TILE_182 : [EASY],
-    TILE_183 : [EASY],
-    TILE_183D : [EASY], # Duplicate of prev. tile
-    TILE_184 : [EASY],
-    TILE_185 : [EASY],
-    
+    # Addendum Tiles
+
+    TILE_ADDENDUM_1 : [EASY],
+    TILE_ADDENDUM_2 : [HARD],
+    TILE_ADDENDUM_3 : [HARD],
+    TILE_ADDENDUM_4 : [EASY],
+    TILE_ADDENDUM_5 : [EASY],
+    TILE_ADDENDUM_6 : [MEDIUM],
+    TILE_ADDENDUM_7 : [HARD],
+    TILE_ADDENDUM_8 : [HARD],
+    TILE_ADDENDUM_9 : [EASY],
+
+    # ALL CONNECTORS
+
+        # ALL CONNECTORS
+
+    TILE_ALL_1LL : [EASY],
+    TILE_ALL_1MM : [EASY],
+    TILE_ALL_1TT : [EASY],
+    TILE_ALL_1LM : [EASY],
+    TILE_ALL_1LT : [EASY],
+    TILE_ALL_1ML : [EASY],
+    TILE_ALL_1MT : [EASY],
+    TILE_ALL_1TL : [EASY],
+    TILE_ALL_1TM : [EASY],
+
+    TILE_ALL_2LL : [MEDIUM],
+    TILE_ALL_2MM : [MEDIUM],
+    TILE_ALL_2TT : [MEDIUM],
+    TILE_ALL_2LM : [MEDIUM],
+    TILE_ALL_2LT : [MEDIUM],
+    TILE_ALL_2ML : [MEDIUM],
+    TILE_ALL_2MT : [MEDIUM],
+    TILE_ALL_2TL : [MEDIUM],
+    TILE_ALL_2TM : [MEDIUM],
+
+    TILE_ALL_3LL : [HARD],
+    TILE_ALL_3MM : [HARD],
+    TILE_ALL_3TT : [HARD],
+    TILE_ALL_3LM : [HARD],
+    TILE_ALL_3LT : [HARD],
+    TILE_ALL_3ML : [HARD],
+    TILE_ALL_3MT : [HARD],
+    TILE_ALL_3TL : [HARD],
+    TILE_ALL_3TM : [HARD],
+
+
 }
-
 
 """Tile Weights
 
@@ -1054,6 +1190,49 @@ tileWeights = {
     TILE_181DDD : 1,
     TILE_183D : 1,
 
+    # Addendum Tiles
+
+    TILE_ADDENDUM_1 : 1,
+    TILE_ADDENDUM_2 : 1,
+    TILE_ADDENDUM_3 : 1,
+    TILE_ADDENDUM_4 : 1,
+    TILE_ADDENDUM_5 : 1,
+    TILE_ADDENDUM_6 : 1,
+    TILE_ADDENDUM_7 : 1,
+    TILE_ADDENDUM_8 : 1,
+    TILE_ADDENDUM_9 : 1,
+
+    # ALL CONNECTORS
+
+    TILE_ALL_1LL : 1,
+    TILE_ALL_1MM : 1,
+    TILE_ALL_1TT : 1,
+    TILE_ALL_1LM : 1,
+    TILE_ALL_1LT : 1,
+    TILE_ALL_1ML : 1,
+    TILE_ALL_1MT : 1,
+    TILE_ALL_1TL : 1,
+    TILE_ALL_1TM : 1,
+
+    TILE_ALL_2LL : 1,
+    TILE_ALL_2MM : 1,
+    TILE_ALL_2TT : 1,
+    TILE_ALL_2LM : 1,
+    TILE_ALL_2LT : 1,
+    TILE_ALL_2ML : 1,
+    TILE_ALL_2MT : 1,
+    TILE_ALL_2TL : 1,
+    TILE_ALL_2TM : 1,
+
+    TILE_ALL_3LL : 1,
+    TILE_ALL_3MM : 1,
+    TILE_ALL_3TT : 1,
+    TILE_ALL_3LM : 1,
+    TILE_ALL_3LT : 1,
+    TILE_ALL_3ML : 1,
+    TILE_ALL_3MT : 1,
+    TILE_ALL_3TL : 1,
+    TILE_ALL_3TM : 1,
 }
 
 
@@ -1307,5 +1486,49 @@ tileSprites = {
     TILE_181DD : (28800, 0),
     TILE_181DDD : (28800, 0),
     TILE_183D : (29120, 0),
+
+    # Addendum Tiles
+
+    TILE_ADDENDUM_1 : (29600,0),
+    TILE_ADDENDUM_2 : (29760,0),
+    TILE_ADDENDUM_3 : (29920,0),
+    TILE_ADDENDUM_4 : (30080,0),
+    TILE_ADDENDUM_5 : (30240,0),
+    TILE_ADDENDUM_6 : (30400,0),
+    TILE_ADDENDUM_7 : (30560,0),
+    TILE_ADDENDUM_8 : (30720,0),
+    TILE_ADDENDUM_9 : (30880,0),
+
+    # ALL CONNECTORS
+
+    TILE_ALL_1LL : (31040,0),
+    TILE_ALL_1MM : (31040,0),
+    TILE_ALL_1TT : (31040,0),
+    TILE_ALL_1LM : (31040,0),
+    TILE_ALL_1LT : (31040,0),
+    TILE_ALL_1ML : (31040,0),
+    TILE_ALL_1MT : (31040,0),
+    TILE_ALL_1TL : (31040,0),
+    TILE_ALL_1TM : (31040,0),
+
+    TILE_ALL_2LL : (31200,0),
+    TILE_ALL_2MM : (31200,0),
+    TILE_ALL_2TT : (31200,0),
+    TILE_ALL_2LM : (31200,0),
+    TILE_ALL_2LT : (31200,0),
+    TILE_ALL_2ML : (31200,0),
+    TILE_ALL_2MT : (31200,0),
+    TILE_ALL_2TL : (31200,0),
+    TILE_ALL_2TM : (31200,0),
+
+    TILE_ALL_3LL : (31360,0),
+    TILE_ALL_3MM : (31360,0),
+    TILE_ALL_3TT : (31360,0),
+    TILE_ALL_3LM : (31360,0),
+    TILE_ALL_3LT : (31360,0),
+    TILE_ALL_3ML : (31360,0),
+    TILE_ALL_3MT : (31360,0),
+    TILE_ALL_3TL : (31360,0),
+    TILE_ALL_3TM : (31360,0),
 
 }
