@@ -2,7 +2,6 @@ import os
 import numpy as np
 import cv2 as cv
 from PIL import Image
-# from ..Settings import *
 
 
 GAP = np.array([255,0,200,255]) # SET TO BG COLOUR!
