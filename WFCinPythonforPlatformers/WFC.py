@@ -52,7 +52,6 @@ for i in range(1000):
                 if event.key == pygame.K_SPACE:
                     if interact is True and key_press is True:
                         level.waveFunctionCollapse()
-                        # drawLevel.update()
                         id=str(drawLevel.update())
                         print(id)
 
@@ -73,5 +72,4 @@ for i in range(1000):
             pygame.image.save(displaySurface,f"result_images/res{id}.png")
             isRunning = False
 
-    # pygame.image.save(displaySurface,f"result/res{id}.png")
     pygame.quit()
