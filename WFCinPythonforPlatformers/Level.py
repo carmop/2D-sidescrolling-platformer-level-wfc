@@ -31,13 +31,14 @@ class Level:
         self.rows = sizeY
 
         self.tileRows = []
-        for y in range(sizeY):
+        for y in range(1): # sizeY
             tiles = []
-            for x in range(sizeX):
+            for x in range(sizeX): #sizeX
                 tile = Tile(x,y)
                 possibilities = tile.possibilities.copy()
                 
                 if ANXIETY_CURVE: # Only culls the tiles if user wants to generate with anxiety curve parameter
+
                     for i in range(len(possibilities)):
 
                         if tileDifficulty[tile.possibilities[i]][0] is not self.AC[x]:
@@ -75,7 +76,7 @@ class Level:
         The possibilities list is a list made from the key values
         of the dictionary of adjecency rules.
         """
-
+        # print(", self.tileRows[y][x].possibilities)
         return self.tileRows[y][x].possibilities[0] 
     
 

@@ -28,6 +28,8 @@ class DrawLevel:
     def update(self):
         """Get tiles' entropy to display its numeric value in the cells, and draw collapsed tiles."""
 
+        level_id = []
+
         lowest_entropy = self.level.getLowestEntropy()
 
         for y in range(LEVEL_H):
@@ -52,19 +54,22 @@ class DrawLevel:
 
                 # When entropy is 0 tile will be collapsed so it has to be drawn.            
                 else:
-                    pos = tileSprites[EASY_STRAIGHT_MID] # Use 1 instead of EASY_STRAIGHT_MID ?
+                    pos = tileSprites[TILE_001] # Will always draw tile 1 first. Then it will be drawn over later
 
                     # Get image from spritesheet and scale properly.
                     tile_image = self.spritesheet.subsurface(pygame.Rect(pos[0], pos[1], X_TILE, Y_TILE))
                     tile_image = pygame.transform.scale_by(tile_image, (SCALING, SCALING))
 
-                    # Draw tile in correct positon.
+                    # Draw tile in correct positon and overwrite tile 1.
                     self.surface.blit(tile_image, (x * X_TILE * SCALING, y * Y_TILE * SCALING))
-                    pos = tileSprites[tile_type]
+                    pos = tileSprites[tile_type] 
                     tile_image = self.spritesheet.subsurface(pygame.Rect(pos[0], pos[1], X_TILE, Y_TILE))
-                
+                level_id.append(str(tile_type))
+                # print(level_id)
                 tile_image = pygame.transform.scale_by(tile_image, (SCALING, SCALING))
                 self.surface.blit(tile_image, (x * X_TILE * SCALING, y * Y_TILE * SCALING))
+        
+        return level_id
 
 
     def draw(self, displaySurface):
