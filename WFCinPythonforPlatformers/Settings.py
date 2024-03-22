@@ -26,8 +26,8 @@ AC = [2,2,0,0,0,0,0,0,2,2] # `Valley` difficulty
 #Path to spritesheet
 # SPRITESHEET_PATH = "images/tiles/SMB_Sprites_w_Background.png" # Sprites including enemies 
 # SPRITESHEET_PATH = "images/tiles/SMBSMB_SPrites_NoEnemies_BlackBg.png" # Black BG
-SPRITESHEET_PATH = "images/tiles/ALLSPRITES+_NoEnemies_PinkBG.png" # Pink BG
-# SPRITESHEET_PATH = "images/tiles/ALLSPRITES+_BlueBG.png" # No BG
+# SPRITESHEET_PATH = "images/tiles/ALLSPRITES+_NoEnemies_PinkBG.png" # Pink BG
+SPRITESHEET_PATH = "images/tiles/ALLSPRITES+_BlueBG.png" # No BG
 
 #Amount of tiles per level
 LEVEL_LENGTH = 10
