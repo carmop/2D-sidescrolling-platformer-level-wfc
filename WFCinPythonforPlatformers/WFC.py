@@ -8,7 +8,7 @@ from Settings import *
 interact = INTERACTIVE
 key_press = INTERACTIVE_KEYPRESS
 
-for i in range(1000):
+for i in range(1):
     print("GENERATION:",i)
     pygame.init()
     clock = pygame.time.Clock()

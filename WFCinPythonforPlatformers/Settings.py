@@ -15,12 +15,12 @@ If the level size (LEVEL_LENGTH variable) changes
 the size of this list must be changed as well.
 """
 
-# AC = [0,0,0,0,0,0,0,0,0,0]
+# AC = [0,0,0,0,0,0,0,0,0,0] 
 # AC = [0,1,0,1,0,1,0,1,0,1] # Alternating EASY and MEDIUM difficulty 
-# AC = [1,1,1,1,1,1,1,1,1,1]
+AC = [1,1,1,1,1,1,1,1,1,1]
 # AC = [0,0,0,1,1,1,1,2,2,2] # Rising difficulty
 # AC = [0,1,1,1,2,2,1,1,1,0] # Peak difficult at center of level
-AC = [2,2,0,0,0,0,0,0,2,2] # `Valley` difficulty
+# AC = [2,2,0,0,0,0,0,0,2,2] # `Valley` difficulty
 # AC = [2,2,2,2,2,2,2,2,2,2]
 
 #Path to spritesheet
