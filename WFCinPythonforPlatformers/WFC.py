@@ -8,58 +8,68 @@ from Settings import *
 interact = INTERACTIVE
 key_press = INTERACTIVE_KEYPRESS
 
-pygame.init()
-clock = pygame.time.Clock()
+for i in range(1):
+    print("GENERATION:",i)
+    pygame.init()
+    clock = pygame.time.Clock()
 
-# Create surface object, base on size of level and based on level length and y size of 1 tile
-displaySurface = pygame.display.set_mode(size=((LEVEL_LENGTH * X_TILE * SCALING) + 5, (LEVEL_H * Y_TILE * SCALING)))
+    # Create surface object, base on size of level and based on level length and y size of 1 tile
+    displaySurface = pygame.display.set_mode(size=((LEVEL_LENGTH * X_TILE * SCALING), (LEVEL_H * Y_TILE * SCALING)))
 
-pygame.display.set_caption("Wave Function Collapse in Platformer Level Generation")
-
-# Create level variable to determine level size from settings file
-level = Level(LEVEL_LENGTH, LEVEL_H)
+    pygame.display.set_caption("Wave Function Collapse in Platformer Level Generation")
 
 
-# Create level based on size of 'level' variable
-drawLevel = DrawLevel(level)
 
-# Checks is level generation has benn completely finished
-done = False
+    # Create level variable to determine level size from settings file
+    level = Level(LEVEL_LENGTH, LEVEL_H)
 
-# Instantly draws level if `interact` is set to False
-if interact is False:
-    while done is False:
-        result = level.waveFunctionCollapse()
-        if result == 0:
-            done = True
 
-drawLevel.update()
-isRunning = True
+    # Create level based on size of 'level' variable
+    drawLevel = DrawLevel(level)
 
-# Draws level in real time or by pressing space key if `interact` is set to True
-while isRunning:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            isRunning is False
+    # Checks is level generation has benn completely finished
+    done = False
 
-        elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_ESCAPE:
-                isRunning = False
-            if event.key == pygame.K_SPACE:
-                if interact is True and key_press is True:
-                    level.waveFunctionCollapse()
-                    drawLevel.update()
-
-    if interact is True and key_press is False:
-        if not done:
+    # Instantly draws level if `interact` is set to False
+    if interact is False:
+        while done is False:
             result = level.waveFunctionCollapse()
             if result == 0:
                 done = True
-        drawLevel.update()
 
-    drawLevel.draw(displaySurface)
+    drawLevel.update()
+    isRunning = True
 
-    pygame.display.flip()
-    clock.tick(10) # Speed of tile collapsing animation when `key_press` is False and `interact` is True
+    # Draws level in real time or by pressing space key if `interact` is set to True
+    while isRunning:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                isRunning is False
 
-pygame.quit()
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    isRunning = False
+                if event.key == pygame.K_SPACE:
+                    if interact is True and key_press is True:
+                        level.waveFunctionCollapse()
+                        id=str(drawLevel.update())
+                        print(id)
+
+        if interact is True and key_press is False:
+            if not done:
+                result = level.waveFunctionCollapse()
+                if result == 0:
+                    done = True
+                id=str(drawLevel.update())
+                # print(id)
+
+        drawLevel.draw(displaySurface)
+
+        pygame.display.flip()
+        clock.tick(60) # Speed of tile collapsing animation when `key_press` is False and `interact` is True
+        if done: 
+
+            pygame.image.save(displaySurface,f"result_images/res{id}.png")
+            isRunning = False
+
+    pygame.quit()
