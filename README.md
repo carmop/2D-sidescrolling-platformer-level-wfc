@@ -16,6 +16,8 @@ This method for procedural generation uses an image file containing level sectio
 
 ### Set up
 
+Make sure [Python](https://www.python.org/) is installed (version 3.10.12 was used for development).
+
 Install requirement from `requirements.txt` using the `pip install -r requirements` command.
 
 ### Running
