@@ -6,4 +6,6 @@ addons/
 
 __pycache__
 
+# ignore the output images
+
 result_images
