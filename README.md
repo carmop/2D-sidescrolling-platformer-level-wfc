@@ -2,49 +2,29 @@
 
 ### Description
 
-An attempt to implement anxiety curves into wave function collapse level generation in order to 
-end up with an algorithm that can create pseudo-random levels based on desired difficulty.
+An implementation of anxiety curves into the wave function collapse algorithm specifically designed to generated 2D side scrolling platformer levels.
 
 - Wave function collapse:
 	A generation algorithm which uses pre-set rules or rules inferred from a valid input to 
 	generate similar permutations of the input.
 	
-- Anxiety Curves:
-	The qualitative curve that describes a player's challenge in traversing a video game 
-	level (in this case a 2D platforming level)
+- Anxiety curves:
+	The qualitative curve that describes a player's challenges in traversing a video game 
+	level.
 
-The idea behind combining both concepts is to create a easy to use level generator that accounts 
-for intended difficulty
+This method for procedural generation uses an image file containing level sections (tiles) and a list describing the difficulty values for each section of the level; these inputs are used by the wave function collapse algorithm to place tiles pseudo-randomly while following an arbitrary set of adjacency rules that ensure the level will follow the correct difficulty and will be playable.
 
 ### Set up
 
-This project runs on the GODOT game engine (specifically version 4.0.4).
-To download and run the code first install GODOT:
-- GODOT Website: https://godotengine.org/
-- GODOT version archive (for downloading the 4.0.4 version specifically): https://godotengine.org/download/archive/
-
-
-The project also uses the "WFC (Wave Function Collapse) and generic constraint-solving implementation for Godot 4" addon which is, as the name suggests, a version of the WFC algorithm for GODOT game engine. It can be installed onto GODOT through the following steps: 
-- Open GODOT and click `AssetLib` tab on the top-center of the window:
-![](/images/assetlib.PNG)
-- Search "wave function collapse" on the search bar:
-![](/images/search.PNG)
-- Click the addon name:
-![](/images/addonname.PNG)
-- Click `Download` and follow the prompts:
-![](/images/download.PNG)
+Install requirement from `requirements.txt` using the `pip install -r requirements` command.
 
 ### Running
 
-- In order to run right click the `node_2d.tscn` on the `FileSystem` tab and click the first option: `Open Scene`
-![](/images/node2d.PNG)
-- Now press the play :arrow_forward: button on the top-right corner of the program window 
-![](/images/playbutton.PNG)
-
-**if the program does not immediately run refer bellow:**
-
-- In another scene opens, right click the `node_2d` tab on the top left of the program window and select the `Play This Scene` option
-- In case the "Please Confirm..." prompt window appears click `Select Current`
+- Go into the `WFC` directory.
+- Run the `WFC.py` file with python: `python WFC.py` or `python3 WFC.py`.
+- A pygame window should pop up and display the generation. To close it after generation is done press `ESC`.
+	- If running in _interactive_ mode, press `SPACE` to collapse the next tile.
+	- To quit during generation, force quit on the terminal window(`CTRL C`).
 
 
 ### Resources
