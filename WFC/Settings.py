@@ -8,6 +8,8 @@ ANXIETY_CURVE = True
 
 TILE_METADATA = True
 
+LEVELS = 1
+
 """Anxiety Curve Value List
 
 This list defines where tiles of a certain difficulty must be placed in the level.

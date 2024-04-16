@@ -8,7 +8,9 @@ from Settings import *
 interact = INTERACTIVE
 key_press = INTERACTIVE_KEYPRESS
 
-for i in range(1000):
+levels_to_generate = LEVELS
+
+for i in range(levels_to_generate):
     print("GENERATION:",i)
     pygame.init()
     clock = pygame.time.Clock()
