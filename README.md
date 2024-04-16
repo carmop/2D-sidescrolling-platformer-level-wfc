@@ -28,16 +28,9 @@ Install requirement from `requirements.txt` using the `pip install -r requiremen
 	- If running in _interactive_ mode, press `SPACE` to collapse the next tile.
 	- To quit during generation, force quit on the terminal window(`CTRL C`).
 
-
 ### Resources
-- GODOT documentation: https://docs.godotengine.org/en/stable/index.html
 
-- WFC GODOT Package: https://github.com/AlexeyBond/godot-constraint-solving
+- [Wave Function Collapse Repo](https://github.com/mxgmn/WaveFunctionCollapse)
+- [Pygame](https://www.pygame.org/docs/)
+- [Tile Set Used as Example](https://www.spriters-resource.com/nes/supermariobros/)
 
-### Acknowledgements
-
-- [Teams working on GODOT project](https://godotengine.org/teams/) for the free, open-source game engine 
-
-- [AlexeyBond](https://github.com/AlexeyBond) for the WFC package
-
-- [RottingPixels](https://rottingpixels.itch.io/) for the tileset art used
