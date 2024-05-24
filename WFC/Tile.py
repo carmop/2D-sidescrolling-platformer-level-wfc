@@ -63,10 +63,10 @@ class Tile:
         return self.possibilities
     
 
-    def collapse(self):
+    def collapse(self, use_weight):
         """Picks a random tile from available possibilities, may be a weighted selection."""
 
-        if WEIGHTED: # WEIGHTED can be set to True of False in Settings.py
+        if use_weight: # WEIGHTED can be set to True of False in Settings.py
             weight = [tileWeights[possibility] for possibility in self.possibilities]
             self.possibilities = random.choices(self.possibilities, weights=weight, k=1)
             self.entropy = 0
