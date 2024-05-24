@@ -14,7 +14,7 @@ class Level:
     after collapse.
     """
 
-    def __init__(self, sizeX, sizeY) -> None:
+    def __init__(self, sizeX, sizeY, use_ac, use_weight) -> None:
         """Level class that represents the environment of the platformer level.
         
         The class creates an array (of size determined by LEVEL_LENGTH variable in Settings.py file)
@@ -30,6 +30,9 @@ class Level:
         self.cols = sizeX
         self.rows = sizeY
 
+        self.use_ac = use_ac
+        self.use_weight = use_weight
+
         self.tileRows = []
         for y in range(1): # sizeY
             tiles = []
@@ -37,7 +40,7 @@ class Level:
                 tile = Tile(x,y)
                 possibilities = tile.possibilities.copy()
                 
-                if ANXIETY_CURVE: # Only culls the tiles if user wants to generate with anxiety curve parameter
+                if self.use_ac: # Only culls the tiles if user wants to generate with anxiety curve parameter
 
                     for i in range(len(possibilities)):
 
@@ -137,8 +140,8 @@ class Level:
         if tilesLowestEntropy == []: # If there is no lowest entropy WFC is finished
             return 0
 
-        tileToCollapse = random.choice(tilesLowestEntropy) # Choose random tile from lowest entropy tiles
-        tileToCollapse.collapse()
+        tileToCollapse = random.choice(tilesLowestEntropy) # Choose random tile from lowest entropy tiles to be collapsed next
+        tileToCollapse.collapse(self.use_weight)
        
         stack = Stack()
         stack.push(tileToCollapse)
@@ -150,7 +153,7 @@ class Level:
             # Direction to propagate the possibilities, 
             # since this is implementation is simplified as a 1D problem 
             # it can only have up to 2 directions (left and right)
-            directions = tile.getDirections() 
+            directions = tile.getDirections()
 
             for direction in directions:
                 neighbour = tile.getNeighbour(direction)
