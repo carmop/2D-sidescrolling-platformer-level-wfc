@@ -14,6 +14,8 @@ An implementation of anxiety curves into the wave function collapse algorithm sp
 
 This method for procedural generation uses an image file containing level sections (tiles) and a list describing the difficulty values for each section of the level; these inputs are used by the wave function collapse algorithm to place tiles pseudo-randomly while following an arbitrary set of adjacency rules that ensure the level will follow the correct difficulty and will be playable.
 
+_The code in this repository is a product of my graduating [research paper](paper/Carmo-Collapsing%20Through%20Anxiety%20a%20Novel%20Approach%20to%202D%20Side%20Scrolling%20Platformer%20Level%20Generation.pdf) for the computer science department at Allegheny College._
+
 ### Set up
 
 Make sure [Python](https://www.python.org/) is installed (version 3.10.12 was used for development).
