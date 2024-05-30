@@ -24,7 +24,7 @@ AC = [0,0,0,1,1,1,1,2,2,2] # Rising difficulty
 # AC = [2,2,0,0,0,0,0,0,2,2] # `Valley` difficulty
 # AC = [2,2,2,2,2,2,2,2,2,2]
 
-#Path to spritesheet
+#Paths to spritesheet
 # SPRITESHEET_PATH = "images/tiles/SMB_Sprites_w_Background.png" # Sprites including enemies 
 # SPRITESHEET_PATH = "images/tiles/SMB_SPrites_NoEnemies_BlackBg.png" # Black BG
 # SPRITESHEET_PATH = "images/tiles/ALLSPRITES+_NoEnemies_PinkBG.png" # Pink BG
@@ -55,7 +55,7 @@ EASY = 0 # Tiles that have no way to harm the player
 MEDIUM = 1 # Tiles that have total gaps <= 4 tiles wide
 HARD = 2 # Tiles that have total gaps >=5 tiles wide
 
-#Tile Sides:
+#Tile Edge Values/Tile Side Values:
 LOW = 2 # Represents floor height of 2, 3, 4, 5, 6 (starting a min floor, which is 2, and going up by 4 tiles, which is Marios max jump height w/o run-up)
 MID = 7 # 7, 8, 9, 10
 TOP = 11 # 11, 12, 13, 14
