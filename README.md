@@ -28,9 +28,9 @@ Install requirement from `requirements.txt` using the `pip install -r requiremen
 
 - Finished level images are saved in `/result_images` directory (if program is being run with saving option on).
 
-#### Changing the Generation Parameters:
+### Changing the Generation Parameters:
 
-##### Command Line Arguments:
+#### Basic Command Line Arguments:
 
 - Running the program with a number after `main.py` will change the number of levels that will be generated, the default value is one, so the program will generate a single level.
 
@@ -48,26 +48,25 @@ Install requirement from `requirements.txt` using the `pip install -r requiremen
 
 _*These additional arguments can be combined to influence the program's behavior. By default, the generation process will not use anxiety curve or weight values, nor it will save the level images, and it will display the collapse as it happens instead of instantaneously showing the finished level._
 
-##### In the `Settings.py` file there are variables that control the program's running instructions:
+#### Advanced Parameters:
 
-- `INTERACTIVE`: When set to `True` will show the level as collapse takes place step by step.
+***In the `Settings.py` file there are variables that can be altered to change the difficulty curve given to the algorithm for generation, or the weights related to each tile, or the tile set as a whole:***
 
-- `INTERACTIVE_KEYPRESS`: When `True`, will wait for the user to press `SPACE` to collapse the next tile.
-
-##### Then there are variables that control the generation parameters:
-
-- `WEIGHTED`: If set to `True` will take into account the weights of each tile which will affect a given tiles chance to be picked in the generation process.
-	- The weights are stored in the `tileWeights` dictionary in the `Settings.py` file.
-
-- `ANXIETY_CURVE`: When set to `True`, the algorithm will take into account the specified anxiety curve, stored in the variable `AC`, in the generation process. 
-
-- `LEVELS`: An integer that corresponds to how many levels will be generated when the algorithm runs.
-
-- `AC`: A list that represents the anxiety curve values. It contains values which will define what difficulty the level generator has to place at that index. 
+- The list variable `AC` holds a list that represents the anxiety curve values that will be used in generation. The values will define what difficulty tile the level generator has to place at that index. 
 	- The list indexes correspond to the position of the tiles in the level while the values represent how difficult a tile in that index has to be.
+	- The values in the list can range from **0,1, or 2** because those values represent the difficulties easy, medium, and hard respectively.
 
-- `LEVEL_LENGTH`: An integer that represents how many cells/tiles each level has horizontally. **In order to change this values you must also change the `AC` length to match the amount of cells you wish to use in generation.**
+- `LEVEL_LENGTH`: An integer that represents how many cells/tiles each level has horizontally. **In order to change this values you must also change the length of the list `AC` so that it matches the amount of cells you wish to use in generation.**
 	- If set to 25 for instance the `AC` variable must be a list with 25 entries.
+
+- `tileWeights`: A dictionary that holds weight values related to each tile so that if needed tiles can be chosen more often than others. 
+	- The dictionary is formatted using the tile name/tile ID for the key and an integer for the weight value.
+
+**Changing Tile Set:**
+
+***Changing the tile set will require a lot of work unless new tile set is formatted in the exact same way as the current tile set is.***
+
+- To change the tile set, follow the rules in the `Advanced_Settings` inside `/WFC` directory.
 
 ## References
 
