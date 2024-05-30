@@ -1,7 +1,7 @@
 import argparse
 
 def parse():
-    """"""
+    """Function for parsing arguments from command line."""
 
     par = argparse.ArgumentParser()
 
@@ -26,9 +26,8 @@ def parse():
     par.set_defaults(save=False)
 
     par.add_argument('levels', nargs='?', default=1, type=int)
-    # par.add_argument('length', nargs='?', default=10, type=int)
 
-
+    # convert arguments into dictionary
     parameter_dict=vars(par.parse_args())
 
     return parameter_dict
