@@ -2,11 +2,6 @@ from WFC import run
 from Control import parse
 from Settings import *
 
-def set_ac():
-    """"""
-
-    
-
 
 def main():
     """"""
@@ -17,7 +12,7 @@ def main():
     weighted = parameters['weight']
     use_curve = parameters['ac']
 
-    length = parameters['levels']
+    length = parameters['length']
 
     # some code for settings possibly?
 
