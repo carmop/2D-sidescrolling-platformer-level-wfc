@@ -1,4 +1,6 @@
-# Carmop-WFC_AnxietyCurves_SuperMarioBros
+# Wave Function Collapse Based Generation for 2D Side Scrolling Platformer Levels
+
+![](/images/Generation_gif.gif)
 
 ### Description
 
