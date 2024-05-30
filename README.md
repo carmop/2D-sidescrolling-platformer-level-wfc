@@ -66,7 +66,7 @@ _*These additional arguments can be combined to influence the program's behavior
 
 ***Changing the tile set will require a lot of work unless new tile set is formatted in the exact same way as the current tile set is.***
 
-- To change the tile set, follow the rules in the `Advanced_Settings` inside `/WFC` directory.
+- To change the tile set, follow the rules in the `Advanced_Settings.md` file inside `/WFC` directory.
 
 ## References
 
