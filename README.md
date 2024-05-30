@@ -21,7 +21,7 @@ Install requirement from `requirements.txt` using the `pip install -r requiremen
 ### Running
 
 - Go into the `WFC` directory.
-- Run the `WFC.py` file with python: `python WFC.py` or `python3 WFC.py`.
+- Run the `main.py` file with python: `python main.py` or `python3 main.py`.
 - A pygame [^3] window should pop up and display the generation. To close it after generation is done press `ESC`.
 	- If running in _interactive_ mode, press `SPACE` to collapse the next tile.
 	- To quit during generation, force quit on the terminal window(`CTRL C`).
@@ -29,6 +29,24 @@ Install requirement from `requirements.txt` using the `pip install -r requiremen
 - Finished level images are saved in `/result_images` directory (if program is being run with saving option on).
 
 #### Changing the Generation Parameters:
+
+##### Command Line Arguments:
+
+- Running the program with a number after `main.py` will change the number of levels that will be generated, the default value is one, so the program will generate a single level.
+
+	- Example: `python main.py 10` will generate 10 levels consecutively. 
+
+- Adding `--press` will make the program collapse each cell only when prompted by the user pressing `SPACE`.
+
+- Adding `--weight` will have the algorithm utilize weighted values when choosing which tile to collapse. The weight values are found in the `Settings.py` file.
+
+- Adding `--ac` will have the algorithm utilize anxiety curve values when choosing which tile to collapse. These values are also found in the `Settings.py` file.
+
+- Adding `--instant` will make the generation process _visually_ instantaneous rather than each cell collapsing one after the other.
+
+- Adding `--save` will make the program save the generated levels as images in the `/result_images` directory.
+
+_*These additional arguments can be combined to influence the program's behavior. By default, the generation process will not use anxiety curve or weight values, nor it will save the level images, and it will display the collapse as it happens instead of instantaneously showing the finished level._
 
 ##### In the `Settings.py` file there are variables that control the program's running instructions:
 
