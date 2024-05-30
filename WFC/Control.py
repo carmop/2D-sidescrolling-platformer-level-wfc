@@ -17,9 +17,9 @@ def parse():
     par.add_argument('--no-ac', dest='ac', action='store_false')
     par.set_defaults(ac=False)
 
-    par.add_argument('--flash', action='store_false', dest='instant')
-    par.add_argument('--no-flash', dest='instant', action='store_true')
-    par.set_defaults(instant=True)
+    par.add_argument('--instant', action='store_false', dest='progress')
+    par.add_argument('--no-instant', dest='progress', action='store_true')
+    par.set_defaults(progress=True)
 
     par.add_argument('--save', action='store_true')
     par.add_argument('--no-save', dest='save', action='store_false')
