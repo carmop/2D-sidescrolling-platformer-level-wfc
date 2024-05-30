@@ -2,24 +2,16 @@ import pygame
 from Level import Level
 from Draw import DrawLevel
 from Settings import *
-from Control import parse
-
-# Call argparse function which determines parameters for generation
-parameters=parse()
-
-# Set whether or not the level generation will be interactive
-# interact = parameters['instant']
-# key_press = parameters['press']
-
-#temp
-levels_to_generate = LEVELS
-w = False
-ac = False
 
 
-def run(levels_to_generate, use_weight, use_ac, interactable, key_input):
-    """"""
+def run(levels_to_generate, use_weight, use_ac, interactable, key_input, save_levels):
+    """Brings WFC algorithm and Pygame visualization together through 
+    instantiating objects necessary for generation and then calling the
+    waveFunctionCollapse() function to perform operations for level generation. 
+    
+    """
 
+    # variables for defining how levels will be displayed
     interact = interactable
     key_press = key_input
 
@@ -83,12 +75,9 @@ def run(levels_to_generate, use_weight, use_ac, interactable, key_input):
 
             pygame.display.flip()
             clock.tick(60) # Speed of tile collapsing animation when `key_press` is False and `interact` is True
-            # if done: 
+            if done and save_levels: 
 
-            #     pygame.image.save(displaySurface,f"result_images/res{id}.png")
-            #     isRunning = False
+                pygame.image.save(displaySurface,f"result_images/res{id}.png")
+                isRunning = False
 
         pygame.quit()
-
-
-# run(levels_to_generate, w, ac, True, True)
