@@ -4,13 +4,11 @@
 
 An implementation of anxiety curves into the wave function collapse algorithm specifically designed to generated 2D side scrolling platformer levels.
 
-- Wave function collapse:
-	A generation algorithm which uses pre-set rules or rules inferred from a valid input to 
-	generate similar permutations of the input.
+- **Wave function collapse** [^1]:
+	A generation algorithm which uses pre-set rules or rules inferred from a valid input to generate similar permutations of the input.
 	
-- Anxiety curves:
-	The qualitative curve that describes a player's challenges in traversing a video game 
-	level.
+- **Anxiety curves** [^2]:
+	The curve that describes a player's challenges in traversing a video game level.
 
 This method for procedural generation uses an image file containing level sections (tiles) and a list describing the difficulty values for each section of the level; these inputs are used by the wave function collapse algorithm to place tiles pseudo-randomly while following an arbitrary set of adjacency rules that ensure the level will follow the correct difficulty and will be playable.
 
@@ -24,11 +22,11 @@ Install requirement from `requirements.txt` using the `pip install -r requiremen
 
 - Go into the `WFC` directory.
 - Run the `WFC.py` file with python: `python WFC.py` or `python3 WFC.py`.
-- A pygame window should pop up and display the generation. To close it after generation is done press `ESC`.
+- A pygame [^3] window should pop up and display the generation. To close it after generation is done press `ESC`.
 	- If running in _interactive_ mode, press `SPACE` to collapse the next tile.
 	- To quit during generation, force quit on the terminal window(`CTRL C`).
 
-- Finished level images are saved in `/result_images` directory.
+- Finished level images are saved in `/result_images` directory (if program is being run with saving option on).
 
 #### Changing the Generation Parameters:
 
@@ -59,3 +57,11 @@ Install requirement from `requirements.txt` using the `pip install -r requiremen
 - [Pygame](https://www.pygame.org/docs/)
 - [SMB Tile Set Used as Example](https://www.spriters-resource.com/nes/supermariobros/)
 
+
+## References
+
+[^1]: Gumin, M. (2016). Wave Function Collapse Algorithm (Version 1.0) [Computer software]. https://github.com/mxgmn/WaveFunctionCollapse
+
+[^2]: N. Sorenson, P. Pasquier and S. DiPaola, "A Generic Approach to Challenge Modeling for the Procedural Creation of Video Game Levels," in IEEE Transactions on Computational Intelligence and AI in Games, vol. 3, no. 3, pp. 229-244, Sept. 2011
+
+[^3]: Pygame . Pygame Front Page - pygame v2.6.0 documentation. (n.d.). https://www.pygame.org/docs/ 
