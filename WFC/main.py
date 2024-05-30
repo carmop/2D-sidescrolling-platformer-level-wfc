@@ -12,8 +12,6 @@ def main():
     weighted = parameters['weight']
     use_curve = parameters['ac']
 
-    length = parameters['length']
-
     # some code for settings possibly?
 
     print(parameters)
