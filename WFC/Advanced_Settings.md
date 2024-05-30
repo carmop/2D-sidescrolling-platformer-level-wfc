@@ -49,4 +49,8 @@ In order to change the generation rules you must change the dictionary entries t
     - For example, if the first tile is now considered hard instead of easy its entry can be changed to `TILE_001: [HARD]`. 
     - Adding a new type of difficulty follows the same idea as before, create a new variable to represent this difficulty and set its value to an integer that is not being used by any of the other difficulties.
 
-    
+## Changing the Curve:
+
+As stated in the `README` file, changing the Anxiety Curve (`AC`) is not difficult, but you must be careful as the length of the list stored by the `AC` variable **MUST** be equal to the number set in the variable `LEVEL_LENGTH`.
+
+So, changing the level length to a different value also means that the anxiety curve list has to be changed (assuming you are opting to use an anxiety curve in your generation).
