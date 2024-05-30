@@ -16,8 +16,6 @@ def main():
 
     print(parameters)
     print('aight')
-
-    if use_curve:
-        set_ac()
+    
 
 main()
