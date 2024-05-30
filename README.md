@@ -51,13 +51,6 @@ Install requirement from `requirements.txt` using the `pip install -r requiremen
 - `LEVEL_LENGTH`: An integer that represents how many cells/tiles each level has horizontally. **In order to change this values you must also change the `AC` length to match the amount of cells you wish to use in generation.**
 	- If set to 25 for instance the `AC` variable must be a list with 25 entries.
 
-### Resources
-
-- [Wave Function Collapse Repo](https://github.com/mxgmn/WaveFunctionCollapse)
-- [Pygame](https://www.pygame.org/docs/)
-- [SMB Tile Set Used as Example](https://www.spriters-resource.com/nes/supermariobros/)
-
-
 ## References
 
 [^1]: Gumin, M. (2016). Wave Function Collapse Algorithm (Version 1.0) [Computer software]. https://github.com/mxgmn/WaveFunctionCollapse
