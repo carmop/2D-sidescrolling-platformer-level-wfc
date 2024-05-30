@@ -22,8 +22,7 @@ def parse():
     par.set_defaults(instant=True)
 
     par.add_argument('levels', nargs='?', default=1, type=int)
-    par.add_argument('length', nargs='?', default=10, type=int)
-    
+    # par.add_argument('length', nargs='?', default=10, type=int)
 
 
     parameter_dict=vars(par.parse_args())
