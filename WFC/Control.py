@@ -21,6 +21,10 @@ def parse():
     par.add_argument('--no-flash', dest='instant', action='store_true')
     par.set_defaults(instant=True)
 
+    par.add_argument('--save', action='store_true')
+    par.add_argument('--no-save', dest='save', action='store_false')
+    par.set_defaults(save=False)
+
     par.add_argument('levels', nargs='?', default=1, type=int)
     # par.add_argument('length', nargs='?', default=10, type=int)
 
