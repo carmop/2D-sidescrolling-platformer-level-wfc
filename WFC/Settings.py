@@ -1,14 +1,14 @@
-#Controls
+"""Settings for dedfining the tiles and anxiety curve use in generation.
 
-INTERACTIVE = True
-INTERACTIVE_KEYPRESS = False
+This file holds the values used by the Pygame library to define where
+the tiles that should be displayed are located and their respective metadata:
 
-WEIGHTED = True
-ANXIETY_CURVE = True
+- Tile dimentions
+- Weights
+- Tile difficulties
+- Tile types
+"""
 
-# TILE_METADATA = True
-
-LEVELS = 1
 
 """Anxiety Curve Value List
 
@@ -16,11 +16,10 @@ This list defines where tiles of a certain difficulty must be placed in the leve
 If the level size (LEVEL_LENGTH variable) changes 
 the size of this list must be changed as well.
 """
-
 # AC = [0,0,0,0,0,0,0,0,0,0] 
-AC = [0,1,0,1,0,1,0,1,0,1] # Alternating EASY and MEDIUM difficulty 
+# AC = [0,1,0,1,0,1,0,1,0,1] # Alternating EASY and MEDIUM difficulty 
 # AC = [1,1,1,1,1,1,1,1,1,1]
-# AC = [0,0,0,1,1,1,1,2,2,2] # Rising difficulty
+AC = [0,0,0,1,1,1,1,2,2,2] # Rising difficulty
 # AC = [0,1,1,1,2,2,1,1,1,0] # Peak difficult at center of level
 # AC = [2,2,0,0,0,0,0,0,2,2] # `Valley` difficulty
 # AC = [2,2,2,2,2,2,2,2,2,2]
